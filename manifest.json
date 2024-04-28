@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Ruler",
+  "version": "0.1.0",
+  "description": "Browser Ruler; displays size of browser client area in an overlay.",
+  "author": "Red Five Code",
+  "icons": {
+    "16": "images/ruler16.png",
+    "32": "images/ruler32.png",
+    "48": "images/ruler48.png",
+    "128": "images/ruler128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run-at": "document_idle"
+    }
+  ]
+}
