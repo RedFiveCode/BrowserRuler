@@ -6,6 +6,9 @@ console.log("Content");
 
 window.onresize = OnResize;
 
+// show initially rather than wait for window to be resized
+OnResize();
+
 function OnResize(e) {
     console.log(`Onresize: innerWidth=${window.innerWidth}, innerHeight=${window.innerHeight}, clientWidth=${document.body.clientWidth}, clientHeight=${document.body.clientHeight}`);
 
