@@ -33,7 +33,7 @@ function CreateStatusElement() {
         position: fixed;
         z-index: 9999;
         left: 24px;
-        top: 24px;
+        bottom: 24px;
         border-radius: 10px;
         border-style: solid;
         border-width 2px;
