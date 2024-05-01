@@ -3,11 +3,39 @@
 const statusDivId = "browser-ruler-status-div";
 
 console.log("Content");
+subscribe();
 
 window.onresize = OnResize;
 
 // show initially rather than wait for window to be resized
 OnResize();
+
+
+function subscribe() {
+    console.log("Subscribing");
+
+    chrome.runtime.onMessage.addListener( function(message, sender, response) { 
+        console.log("(Content) Message '%s' (%s)", message.command, JSON.stringify(message));
+    
+        if (message.command === "applyRequest") {
+           return OnApplyRequest(message.payload);
+        } 
+        else {
+            console.log("Unsupported message");
+
+            return false; // false means no response for this message
+        }       
+    });
+}
+
+function OnApplyRequest(payload)
+{
+    console.log("OnApplyRequest");
+   
+    // TODO extract settings for payload and update style(s)
+
+    return false; // false means no response for this message
+}
 
 function OnResize(e) {
     console.log(`Onresize: innerWidth=${window.innerWidth}, innerHeight=${window.innerHeight}, clientWidth=${document.body.clientWidth}, clientHeight=${document.body.clientHeight}`);

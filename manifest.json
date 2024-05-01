@@ -10,6 +10,10 @@
     "48": "images/ruler48.png",
     "128": "images/ruler128.png"
   },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [ "activeTab", "scripting", "tabs" ],
   "content_scripts": [
     {
       "matches": [
