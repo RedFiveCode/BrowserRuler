@@ -60,8 +60,8 @@ function CreateStatusElement() {
     styles.textContent = `.status-text { 
         position: fixed;
         z-index: 9999;
-        left: 24px;
-        bottom: 24px;
+        #left: 24px;
+        #bottom: 24px;
         border-radius: 10px;
         border-style: solid;
         border-width 2px;
@@ -70,16 +70,36 @@ function CreateStatusElement() {
         color: navy;
         font-size: 16pt;
         font-weight: bold;
+        font-family: sans-serif;
         display: inline-block;
         padding: 10px;
-     }`;
+     }
+     .status-text-position-SW {
+        left: 24px;
+        bottom: 24px;
+      }
+      .status-text-position-NW {
+        left: 24px;
+        top: 24px;
+      }  
+      .status-text-position-NE {
+        right: 24px;
+        top: 24px;
+      }  
+      .status-text-position-SE {
+        right: 24px;
+        bottom: 24px;
+      }          
+      `;
   
     const myDiv = document.createElement("div");
     myDiv.id = statusDivId;
     myDiv.classList.add("status-text");
+    myDiv.classList.add("status-text-position-SW");
     
     document.head.appendChild(styles);
     document.body.insertBefore(myDiv, document.body.firstChild);
 
     return myDiv;
 }
+
