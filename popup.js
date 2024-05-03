@@ -5,7 +5,8 @@ async function onClickApply()
     console.log("***Apply***");
    
     // send message directly to the active tab/content script
-    let message = { command: "applyRequest", payload: "blah"};
+    let message = { command: "applyRequest",
+                    settings: { position: "SE" } };
     sendMessageToTab(message);
 };
 
