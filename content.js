@@ -117,7 +117,7 @@ function createStyleElement(id) {
 
 function createStatusDivElement(id, settings) {
     const myDiv = document.createElement("div");
-    myDiv.id = statusDivId;
+    myDiv.id = id;
     myDiv.classList.add("status-text");
     myDiv.classList.add(getPositionClassName(settings));
     
