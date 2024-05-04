@@ -84,7 +84,7 @@ function createStyleElement(id) {
         #bottom: 24px;
         border-radius: 10px;
         border-style: solid;
-        border-width 2px;
+        border-width: medium;
         border-color: #bada55;
         background: #bada557F;
         color: navy;
