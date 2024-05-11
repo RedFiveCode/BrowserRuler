@@ -3,7 +3,13 @@
 const stylesId = "browser-ruler-styles-id";
 const statusDivId = "browser-ruler-status-div";
 
-let currentSettings = { position: "SW" }
+let currentSettings = { 
+    position: "SW",
+    fontSize: "12", // point
+    fontWeight: "bold",
+    backgroundColour: "#bada557F",
+    foregroundColour: "navy"
+ }
 
 console.log("Content");
 subscribe();
@@ -73,7 +79,7 @@ function createStatusText(width, height) {
     return `${width} x ${height}`;
 }
 
-function createStyleElement(id) {
+function createStyleElement(id, settings) {
     const myStyle = document.createElement("style");
     myStyle.id = id;
     myStyle.textContent =
@@ -86,10 +92,10 @@ function createStyleElement(id) {
         border-style: solid;
         border-width: medium;
         border-color: #bada55;
-        background: #bada557F;
-        color: navy;
-        font-size: 16pt;
-        font-weight: bold;
+        background: ${getBackgroundColour(settings)};
+        color: ${getForegroundColour(settings)};
+        font-size: ${getFontSize(settings)};
+        font-weight: ${getFontWeight(settings)};
         font-family: sans-serif;
         display: inline-block;
         padding: 10px;
@@ -139,7 +145,7 @@ function updateDocument(settings) {
     // update style(s) based on the settings
 
     removeElementById(stylesId);
-    const myStyle = createStyleElement(stylesId);
+    const myStyle = createStyleElement(stylesId, settings);
 
     removeElementById(statusDivId);
     const myDiv = createStatusDivElement(statusDivId, settings);
@@ -169,4 +175,40 @@ function getPositionClassName(settings) {
     }
 
     return "SW"; // default
+}
+
+function getFontSize(settings) {
+    if (settings && settings.fontSize)
+    {
+        return settings.fontSize + "pt";
+    }
+
+    return "12pt"; // default
+}
+
+function getFontWeight(settings) {
+    if (settings && settings.fontWeight)
+    {
+        return settings.fontWeight;
+    }
+
+    return "normal"; // default
+}
+
+function getBackgroundColour(settings) {
+    if (settings && settings.backgroundColour)
+    {
+        return settings.backgroundColour;
+    }
+
+    return "#bada557F"; // default    
+}
+
+function getForegroundColour(settings) {
+    if (settings && settings.foregroundColour)
+    {
+        return settings.foregroundColour;
+    }
+
+    return "navy"; // default    
 }

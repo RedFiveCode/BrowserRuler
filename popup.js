@@ -6,7 +6,12 @@ async function onClickApply()
    
     // send message directly to the active tab/content script
     let message = { command: "applyRequest",
-                    settings: { position: "SE" } };
+                    settings: {
+                        position: "SE",
+                        fontSize: 16,
+                        fontWeight: "normal",
+                        backgroundColour: "magenta",
+                        foregroundColour: "white" } };
     sendMessageToTab(message);
 };
 
