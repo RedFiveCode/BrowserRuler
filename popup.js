@@ -11,7 +11,9 @@ async function onClickApply()
                         fontSize: 16,
                         fontWeight: "normal",
                         backgroundColour: "magenta",
-                        foregroundColour: "white" } };
+                        foregroundColour: "white",
+                        borderColour: "red"
+                     } };
     sendMessageToTab(message);
 };
 

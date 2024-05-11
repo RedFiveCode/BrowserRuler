@@ -8,7 +8,8 @@ let currentSettings = {
     fontSize: "12", // point
     fontWeight: "bold",
     backgroundColour: "#bada557F",
-    foregroundColour: "navy"
+    foregroundColour: "navy",
+    borderColour: "#bada55"
  }
 
 console.log("Content");
@@ -91,7 +92,7 @@ function createStyleElement(id, settings) {
         border-radius: 10px;
         border-style: solid;
         border-width: medium;
-        border-color: #bada55;
+        border-color: ${getBorderColour(settings)};
         background: ${getBackgroundColour(settings)};
         color: ${getForegroundColour(settings)};
         font-size: ${getFontSize(settings)};
@@ -211,4 +212,13 @@ function getForegroundColour(settings) {
     }
 
     return "navy"; // default    
+}
+
+function getBorderColour(settings) {
+    if (settings && settings.borderColour)
+    {
+        return settings.borderColour;
+    }
+
+    return "#bada55"; // default    
 }
