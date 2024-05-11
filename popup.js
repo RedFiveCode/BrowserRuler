@@ -1,19 +1,21 @@
 console.log("***Popup***");
 
+let settings = {
+    position: "SE",
+    fontSize: 16,
+    fontWeight: "normal",
+    backgroundColour: "magenta",
+    foregroundColour: "white",
+    borderColour: "red"
+ };
+
 async function onClickApply()
 {
     console.log("***Apply***");
    
     // send message directly to the active tab/content script
     let message = { command: "applyRequest",
-                    settings: {
-                        position: "SE",
-                        fontSize: 16,
-                        fontWeight: "normal",
-                        backgroundColour: "magenta",
-                        foregroundColour: "white",
-                        borderColour: "red"
-                     } };
+                    settings: settings };
     sendMessageToTab(message);
 };
 
