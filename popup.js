@@ -9,16 +9,7 @@ let settings = {
     borderColour: "red"
  };
 
-async function onClickApply()
-{
-    console.log("***Apply***");
-   
-    // send message directly to the active tab/content script
-    let message = { command: "applyRequest",
-                    settings: settings };
-    sendMessageToTab(message);
-};
-
+ 
 async function sendMessageToTab(message)
 {
     var tabId = await getCurrentTabId();
@@ -27,15 +18,6 @@ async function sendMessageToTab(message)
 
         chrome.tabs.sendMessage(tabId, message);
     }
-}
-
-function onLoaded()
-{
-    console.log("***Loaded***");
-
-    // add event handlers when controls have been loaded
-    document.getElementById('applySettings').addEventListener('click', onClickApply);
-
 }
 
 async function getCurrentTabId()
@@ -62,6 +44,41 @@ async function getCurrentTabId()
 
         return -1;
     }
+}
+
+function getListValue(id) {
+    var element = document.getElementById(id);
+    if (element) {
+        console.log(`Id ${id} : value=${element.value}, index=${element.selectedIndex}, id=${element[element.selectedIndex].id}`);
+
+        return element[element.selectedIndex].id;
+    }
+
+    console.log(`Id ${id} : not found`);
+    return null;
+ }
+
+async function onClickApply()
+{
+    console.log("***Apply***");
+
+    settings.position = getListValue('positionList');
+    settings.fontSize = getListValue('fontSizeList');
+    settings.fontWeight = getListValue('fontWeightList');
+   
+    // send message directly to the active tab/content script
+    let message = { command: "applyRequest",
+                    settings: settings };
+    sendMessageToTab(message);
+};
+
+function onLoaded()
+{
+    console.log("***Loaded***");
+
+    // add event handlers when controls have been loaded
+    document.getElementById('applySettings').addEventListener('click', onClickApply);
+
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

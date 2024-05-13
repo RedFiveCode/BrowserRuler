@@ -1,13 +1,58 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="popup.css">
     </head>
   <body>
     <script type="module" src="popup.js"></script>
-
+    
     <h1>Browser Ruler</h1>
 
-    <button id="applySettings" class="button">Apply</button>
+    <table>
+      <tr>
+        <td class="caption">Position</td>
+        <td class="value">
+          <select id="positionList">
+            <option id="NW">Top left</option>
+            <option id="NE">Top right</option>
+            <option id="SE">Bottom left</option>
+            <option id="SW">Bottom right</option>
+          </select>
+        </td>
+      </tr>
 
+      <tr>
+        <td class="caption">Font size</td>
+        <td class="value">
+          <select id="fontSizeList">
+            <option id="8">8 pt</option>
+            <option id="10">10 pt</option>
+            <option id="12">12 pt</option>
+            <option id="14">14 pt</option>
+            <option id="18">18 pt</option>
+            <option id="24">24 pt</option>
+            <option id="36">36 pt</option>
+            <option id="48">48 pt</option>
+          </select>
+        </td>
+      </tr> 
+      
+      <tr>
+        <td class="caption">Font weight</td>
+        <td class="value">
+          <select id="fontWeightList">
+            <option id="100">Thin</option>
+            <option id="300">Light</option>
+            <option id="400">Normal</option>
+            <option id="500">Medium</option>
+            <option id="600">Semi Bold</option>
+            <option id="700">Bold</option>
+            <option id="800">Extra Bold</option>
+          </select>
+        </td>
+      </tr>      
+    </table>
+
+    <button id="applySettings" class="button">Apply</button>
   </body>
 </html>
