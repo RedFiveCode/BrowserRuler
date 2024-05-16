@@ -22,7 +22,16 @@
       "js": [
         "content.js"
       ],
-      "run-at": "document_idle"
+      "run-at": "document_start",
+      "all_frames": false
     }
-  ]
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ 
+                     "pickr/classic.min.css",
+                     "pickr/pickr.min.js",
+                     "popup.js" ],
+      "matches": [ "<all_urls>" ]
+    }]
 }

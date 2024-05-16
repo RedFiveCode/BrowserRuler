@@ -46,6 +46,45 @@ async function getCurrentTabId()
     }
 }
 
+function createPicker(element, defaultColour) {
+    return new Pickr({
+        el: element,
+        default: defaultColour,
+        theme: 'classic', // or 'monolith', or 'nano'
+        //useAsButton: true,
+  
+        swatches: [
+            'rgba(244, 67, 54, 1)',
+            'rgba(233, 30, 99, 0.95)',
+            'rgba(156, 39, 176, 0.9)',
+            'rgba(103, 58, 183, 0.85)',
+            'rgba(63, 81, 181, 0.8)',
+            'rgba(33, 150, 243, 0.75)',
+            'rgba(3, 169, 244, 0.7)',
+            'rgba(0, 188, 212, 0.7)',
+            'rgba(0, 150, 136, 0.75)',
+            'rgba(76, 175, 80, 0.8)',
+            'rgba(139, 195, 74, 0.85)',
+            'rgba(205, 220, 57, 0.9)',
+            'rgba(255, 235, 59, 0.95)',
+            'rgba(255, 193, 7, 1)'
+        ],
+    
+        components: {
+            preview: true,
+            opacity: true,
+            hue: true,
+    
+            interaction: {
+                hex: true,
+                rgba: true,
+                input: true,
+                save: true
+            }
+        }
+    });
+ }
+
 function getListValue(id) {
     var element = document.getElementById(id);
     if (element) {
@@ -56,7 +95,7 @@ function getListValue(id) {
 
     console.log(`Id ${id} : not found`);
     return null;
- }
+}
 
 async function onClickApply()
 {
@@ -72,6 +111,30 @@ async function onClickApply()
     sendMessageToTab(message);
 };
 
+function setElementColour(classNameOrId, colour) {
+    const e = document.querySelector(classNameOrId);
+  
+    if (e) {
+        console.log(`Updating ${classNameOrId} to ${colour}`); 
+  
+        e.innerText = colour;
+        e.style.color = colour;
+    }
+}
+
+function saveColor(color, instance, id) {
+    if (color) {
+        const hexColour = color.toHEXA().toString(0);
+
+        setElementColour(id, hexColour);
+
+        instance.hide();
+        return hexColour;
+    }
+
+    return null;
+}
+
 function onLoaded()
 {
     console.log("***Loaded***");
@@ -79,6 +142,33 @@ function onLoaded()
     // add event handlers when controls have been loaded
     document.getElementById('applySettings').addEventListener('click', onClickApply);
 
+    // add colour picker
+    var el = document.querySelector('.colour-picker-background');
+    if (el) {
+      const cp1 = createPicker('.colour-picker-background', 'cyan');
+    
+      cp1.on('save', (color, instance) => {
+          settings.backgroundColour = saveColor(color, instance, '.background-colour-label');
+      }); 
+    }
+
+    el = document.querySelector('.colour-picker-foreground');
+    if (el) {
+      const cp2 = createPicker('.colour-picker-foreground', 'green');
+    
+      cp2.on('save', (color, instance) => {
+          settings.foregroundColour = saveColor(color, instance, '.foreground-colour-label');
+      }); 
+    } 
+    
+    el = document.querySelector('.colour-picker-border');
+    if (el) {
+      const cp3 = createPicker('.colour-picker-border', '#bada55');
+    
+      cp3.on('save', (color, instance) => {
+          settings.borderColour = saveColor(color, instance, '.border-colour-label');
+      }); 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

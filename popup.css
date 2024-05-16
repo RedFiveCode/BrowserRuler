@@ -14,3 +14,18 @@ h1
 {
     padding-right: 10px;
 }
+
+.colour-container {
+    display: flex;
+    align-items: center;
+}
+
+.background-colour-label {
+    display: inline;
+    font-weight: bold;
+}
+
+.pickr {
+    display: inline;
+    margin-right: 6px;
+}

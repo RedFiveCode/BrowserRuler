@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="popup.css">
-    </head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+    <link rel="stylesheet" href="pickr/classic.min.css" />
+  </head>
   <body>
-    <script type="module" src="popup.js"></script>
-    
     <h1>Browser Ruler</h1>
 
     <table>
@@ -33,10 +32,11 @@
             <option id="24">24 pt</option>
             <option id="36">36 pt</option>
             <option id="48">48 pt</option>
+            <option id="72">72 pt</option>
           </select>
         </td>
-      </tr> 
-      
+      </tr>
+
       <tr>
         <td class="caption">Font weight</td>
         <td class="value">
@@ -50,9 +50,50 @@
             <option id="800">Extra Bold</option>
           </select>
         </td>
-      </tr>      
+      </tr>
+
+      <tr>
+        <td class="caption">Foreground colour</td>
+        <td class="value">
+          <div class="colour-container">
+            <div class="colour-picker-foreground"></div>
+            <div
+              class="foreground-colour-label" id="foreground-colour-label-id">
+              <label></label>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="caption">Background colour</td>
+        <td class="value">
+          <div class="colour-container">
+            <div class="colour-picker-background"></div>
+            <div
+              class="background-colour-label" id="background-colour-label-id" >
+              <label></label>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="caption">Border colour</td>
+        <td class="value">
+          <div class="colour-container">
+            <div class="colour-picker-border"></div>
+            <div class="border-colour-label" id="border-colour-label-id">
+              <label></label>
+            </div>
+          </div>
+        </td>
+      </tr>
     </table>
 
     <button id="applySettings" class="button">Apply</button>
+
+    <script src="pickr/pickr.min.js"></script>
+    <script src="popup.js"></script>
   </body>
 </html>
