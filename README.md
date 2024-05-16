@@ -1,6 +1,11 @@
 # BrowserRuler
 Chrome browser extension to show browser window size.
 
+For example:
+
+![Example image](./examples/example.png)
+
+
 ## Motivation
 This browser extension is not ground breaking. The motivation for writing this is to learn about Chrome browser extensions and developing in javascript, html and css. It's a passion project.
 
