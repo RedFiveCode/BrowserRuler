@@ -1,0 +1,43 @@
+:root {
+    --fontSize: 14pt;
+    --fontWeight: normal;
+    --foregroundColour:
+    --backgroundColour: #bada557F;
+    --foregroundColour: navy;
+    --borderColour: #bada55;
+}
+
+.status-text { 
+    position: fixed;
+    z-index: 9999;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: medium;
+    border-color: var(--borderColour);    
+
+    background: var(--backgroundColour);
+    color: var(--foregroundColour);
+    
+    font-size: var(--fontSize);
+    font-weight: var(--fontWeight);
+    font-family: sans-serif;
+    display: inline-block;
+    padding: 10px;
+ }
+
+.status-text-position-SW {
+    left: 24px;
+    bottom: 24px;
+}
+.status-text-position-NW {
+    left: 24px;
+    top: 24px;
+}  
+.status-text-position-NE {
+    right: 24px;
+    top: 24px;
+}  
+.status-text-position-SE {
+    right: 24px;
+    bottom: 24px;
+} 

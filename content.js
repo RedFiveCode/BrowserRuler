@@ -13,19 +13,18 @@ let currentSettings = {
  }
 
 console.log("Content");
-subscribe();
 
 OnCreated();
 
 
-function OnCreated() {
+async function OnCreated() {
+    console.log("OnCreated");
+
+    const pageUrl = chrome.runtime.getURL("content.html");
+    await fetch(pageUrl).then(r => r.text())
+                        .then(html => document.body.insertAdjacentHTML('beforebegin', html));
+
     subscribe();
-
-    // add stylesheet and div to document
-    updateDocument(currentSettings);
-
-    // show initially rather than wait for window to be resized
-    OnResize();
 }
 
 function subscribe() {
@@ -80,50 +79,18 @@ function createStatusText(width, height) {
     return `${width} x ${height}`;
 }
 
-function createStyleElement(id, settings) {
+function createStyleElement(id) {
     const myStyle = document.createElement("style");
-    myStyle.id = id;
-    myStyle.textContent =
-    `.status-text { 
-        position: fixed;
-        z-index: 9999;
-        #left: 24px;
-        #bottom: 24px;
-        border-radius: 10px;
-        border-style: solid;
-        border-width: medium;
-        border-color: ${getBorderColour(settings)};
-        background: ${getBackgroundColour(settings)};
-        color: ${getForegroundColour(settings)};
-        font-size: ${getFontSize(settings)};
-        font-weight: ${getFontWeight(settings)};
-        font-family: sans-serif;
-        display: inline-block;
-        padding: 10px;
-     }
-     .status-text-position-SW {
-        left: 24px;
-        bottom: 24px;
-      }
-      .status-text-position-NW {
-        left: 24px;
-        top: 24px;
-      }  
-      .status-text-position-NE {
-        right: 24px;
-        top: 24px;
-      }  
-      .status-text-position-SE {
-        right: 24px;
-        bottom: 24px;
-      }          
-      `;
 
-      return myStyle;
+    myStyle.id = id;
+    myStyle.href = chrome.runtime.getURL("content.css");
+    
+    return myStyle;
 }
 
 function createStatusDivElement(id, settings) {
     const myDiv = document.createElement("div");
+    
     myDiv.id = id;
     myDiv.classList.add("status-text");
     myDiv.classList.add(getPositionClassName(settings));
@@ -141,23 +108,25 @@ function removeElementById(id) {
     }
 }
 
-function updateDocument(settings) {
-    // add stylesheet and div to document; call when first initialised or when settings change
-    // update style(s) based on the settings
-
-    removeElementById(stylesId);
-    const myStyle = createStyleElement(stylesId, settings);
-
-    removeElementById(statusDivId);
-    const myDiv = createStatusDivElement(statusDivId, settings);
-
-    myDiv.classList.add(getPositionClassName(settings));  
-
+async function updateDocument(settings) {
+    
     console.log("Adding stylesheet and div elements");
-    document.head.appendChild(myStyle);
-    document.body.insertBefore(myDiv, document.body.firstChild);
 
-    return myDiv;
+    // update CSS variables
+    const root = document.querySelector(':root');
+    root.style.setProperty('--fontSize', `${settings.fontSize}pt`);
+    root.style.setProperty('--fontWeight', `${settings.fontWeight}`);
+    root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
+    root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
+    root.style.setProperty('--borderColour', `${settings.borderColour}`);
+
+    let myDiv = document.getElementById(statusDivId);
+  
+    if (myDiv) {
+        // remove status-text-position-SW etc class, keep status-text class
+        myDiv.classList = 'status-text';
+        myDiv.classList.add(getPositionClassName(settings));
+    }
 }
 
 function getPositionClassName(settings) {

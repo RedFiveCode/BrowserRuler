@@ -13,15 +13,12 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "permissions": [ "activeTab", "scripting", "tabs" ],
+  "permissions": [ "activeTab", "scripting", "tabs", "storage" ],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
+      "matches": [ "<all_urls>" ],
+      "js": [ "content.js" ],
+      "css": [ "content.css" ],
       "run-at": "document_start",
       "all_frames": false
     }
@@ -31,7 +28,8 @@
       "resources": [ 
                      "pickr/classic.min.css",
                      "pickr/pickr.min.js",
-                     "popup.js" ],
+                     "popup.js",
+                     "content.html" ],
       "matches": [ "<all_urls>" ]
     }]
 }
