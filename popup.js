@@ -156,7 +156,7 @@ function setElementColour(id, colour) {
 }
 
 
-function saveColour(color, instance) {
+function getSelectedColour(color, instance) {
     if (color) {
         const hexColour = color.toHEXA().toString(0);
 
@@ -182,27 +182,27 @@ function loadSettings() {
                                     selectListValue("fontWeightList", settings.fontWeight);
 
                                     // select colour pickers and associated labels
-                                    setElementColour('#background-colour-label-id', settings.backgroundColour);
                                     setElementColour('#foreground-colour-label-id', settings.foregroundColour);
+                                    setElementColour('#background-colour-label-id', settings.backgroundColour);
                                     setElementColour('#border-colour-label-id', settings.borderColour);   
 
-                                    const cp1 = createPicker('.colour-picker-background', settings.backgroundColour);                               
-                                    cp1.on('save', (color, instance) => {
-                                        settings.backgroundColour = saveColour(color, instance);
-                                        setElementColour('#background-colour-label-id', settings.backgroundColour);
-                                        onSettingChanged();
-                                    }); 
-                                
-                                    const cp2 = createPicker('.colour-picker-foreground', settings.foregroundColour);
-                                    cp2.on('save', (color, instance) => {
-                                        settings.foregroundColour = saveColour(color, instance);
+                                    const foregroundColourPicker = createPicker('.colour-picker-foreground', settings.foregroundColour);
+                                    foregroundColourPicker.on('save', (color, instance) => {
+                                        settings.foregroundColour = getSelectedColour(color, instance);
                                         setElementColour('#foreground-colour-label-id', settings.foregroundColour);
                                         onSettingChanged();
                                     }); 
-                                    
-                                    const cp3 = createPicker('.colour-picker-border', settings.borderColour);
-                                    cp3.on('save', (color, instance) => {
-                                        settings.borderColour = saveColour(color, instance);
+
+                                    const backgroundColourPicker = createPicker('.colour-picker-background', settings.backgroundColour);                               
+                                    backgroundColourPicker.on('save', (color, instance) => {
+                                        settings.backgroundColour = getSelectedColour(color, instance);
+                                        setElementColour('#background-colour-label-id', settings.backgroundColour);
+                                        onSettingChanged();
+                                    }); 
+                                                                   
+                                    const borderColourPicker = createPicker('.colour-picker-border', settings.borderColour);
+                                    borderColourPicker.on('save', (color, instance) => {
+                                        settings.borderColour = getSelectedColour(color, instance);
                                         setElementColour('#border-colour-label-id', settings.borderColour);
                                         onSettingChanged();
                                     }); 
