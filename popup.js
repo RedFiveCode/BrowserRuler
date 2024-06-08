@@ -46,9 +46,17 @@ async function getCurrentTabId()
     }
 }
 
-function createPicker(element, defaultColour) {
+function createPicker(placeholderElementClassName, defaultColour) {
+
+    var element = document.querySelector(placeholderElementClassName);
+    
+    if (!element){
+        console.log(`Placeholder ${placeholderElementClassName} : not found`);
+        return;
+    }
+
     return new Pickr({
-        el: element,
+        el: placeholderElementClassName,
         default: defaultColour,
         theme: 'classic', // or 'monolith', or 'nano'
         //useAsButton: true,
@@ -133,17 +141,17 @@ async function onClickApply()
     window.close();
 };
 
-function setElementColour(classNameOrId, colour) {
-    const e = document.querySelector(classNameOrId);
+function setElementColour(id, colour) {
+    const e = document.getElementById(id);
   
     if (e) {
-        console.log(`Updating ${classNameOrId} to ${colour}`); 
+        console.log(`Updating ${id} to ${colour}`); 
   
         e.innerText = colour;
         e.style.color = colour;
     }
     else {
-        console.log(`Element ${classNameOrId} not found`); 
+        console.log(`Element id ${id} not found`); 
     }
 }
 
@@ -159,7 +167,6 @@ function saveColour(color, instance) {
     return null;
 }
 
-
 function loadSettings() {
     chrome.storage.local.get('mySettings')
                         .then( (data) =>
@@ -174,42 +181,31 @@ function loadSettings() {
                                     selectListValue("fontSizeList", settings.fontSize);
                                     selectListValue("fontWeightList", settings.fontWeight);
 
-                                    // Tselect color pickers and associated labels
-                                    var el = document.querySelector('.colour-picker-background');
-                                    if (el) {
-                                        const cp1 = createPicker('.colour-picker-background', settings.backgroundColour);
-                                    
-                                        cp1.on('save', (color, instance) => {
-                                            settings.backgroundColour = saveColour(color, instance);
-                                            setElementColour('#background-colour-label-id', settings.backgroundColour);
-                                            onSettingChanged();
-                                        }); 
-                                    }
+                                    // select colour pickers and associated labels
                                     setElementColour('#background-colour-label-id', settings.backgroundColour);
-                                
-                                    el = document.querySelector('.colour-picker-foreground');
-                                    if (el) {
-                                        const cp2 = createPicker('.colour-picker-foreground', settings.foregroundColour);
-                                    
-                                        cp2.on('save', (color, instance) => {
-                                            settings.foregroundColour = saveColour(color, instance);
-                                            setElementColour('#foreground-colour-label-id', settings.foregroundColour);
-                                            onSettingChanged();
-                                        }); 
-                                    }
                                     setElementColour('#foreground-colour-label-id', settings.foregroundColour);
+                                    setElementColour('#border-colour-label-id', settings.borderColour);   
+
+                                    const cp1 = createPicker('.colour-picker-background', settings.backgroundColour);                               
+                                    cp1.on('save', (color, instance) => {
+                                        settings.backgroundColour = saveColour(color, instance);
+                                        setElementColour('#background-colour-label-id', settings.backgroundColour);
+                                        onSettingChanged();
+                                    }); 
+                                
+                                    const cp2 = createPicker('.colour-picker-foreground', settings.foregroundColour);
+                                    cp2.on('save', (color, instance) => {
+                                        settings.foregroundColour = saveColour(color, instance);
+                                        setElementColour('#foreground-colour-label-id', settings.foregroundColour);
+                                        onSettingChanged();
+                                    }); 
                                     
-                                    el = document.querySelector('.colour-picker-border');
-                                    if (el) {
-                                        const cp3 = createPicker('.colour-picker-border', settings.borderColour);
-                                    
-                                        cp3.on('save', (color, instance) => {
-                                            settings.borderColour = saveColour(color, instance);
-                                            setElementColour('#border-colour-label-id', settings.borderColour);
-                                            onSettingChanged();
-                                        }); 
-                                    }
-                                    setElementColour('#border-colour-label-id', settings.borderColour);                                           
+                                    const cp3 = createPicker('.colour-picker-border', settings.borderColour);
+                                    cp3.on('save', (color, instance) => {
+                                        settings.borderColour = saveColour(color, instance);
+                                        setElementColour('#border-colour-label-id', settings.borderColour);
+                                        onSettingChanged();
+                                    }); 
                                 }
                             });
 }
