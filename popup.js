@@ -220,11 +220,7 @@ function saveSettings(s) {
 function onSettingChanged() {
     console.log('settings have changed');
 
-    // var fontSizeClass = 
-    // `example-text-FontSize { 
-    //     font-size: ${settings.fontSize} + "pt";
-    //  }`;
-
+    settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
 
@@ -237,12 +233,19 @@ function onSettingChanged() {
     root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
     root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
+    // position is not used in the example text / stylesheet for popup
 
     var rs = getComputedStyle(root);
   
     console.log(`fontSize = ${rs.getPropertyValue('--fontSize')}`);
     console.log(`fontWeight = ${rs.getPropertyValue('--fontWeight')}`);
 }
+
+function onChanged(e) {
+    console.log(`${e.srcElement.id} changed : ${e.srcElement.value}, ${getListValue(e.srcElement.id)}`);
+    onSettingChanged();
+}
+
 
 function onLoaded()
 {
@@ -252,6 +255,10 @@ function onLoaded()
 
     // add event handlers when controls have been loaded
     document.getElementById('applySettings').addEventListener('click', onClickApply);
+
+    document.getElementById('positionList').onchange = onChanged;
+    document.getElementById('fontSizeList').onchange = onChanged;
+    document.getElementById('fontWeightList').onchange = onChanged;
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

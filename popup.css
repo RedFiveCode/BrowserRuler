@@ -1,6 +1,16 @@
+
+:root {
+    --fontSize: 14pt;
+    --fontWeight: normal;
+    --foregroundColour:
+    --backgroundColour: #bada557F;
+    --foregroundColour: navy;
+    --borderColour: #bada55;
+}
+
 body
 {
-    background-color: #bada55;
+    background-color: whitesmoke;
     min-width: 400px;
     min-height: 300px;
 }
@@ -22,8 +32,22 @@ h1
 
 .background-colour-label {
     display: inline;
-    font-weight: bold;
 }
+
+.example-text {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: medium;
+    font-family: sans-serif;
+    display: inline-block;
+    padding: 10px;  
+    font-size: var(--fontSize);
+    font-weight: var(--fontWeight);
+    background: var(--backgroundColour);
+    color: var(--foregroundColour);
+    border-color: var(--borderColour);
+}
+
 
 .pickr {
     display: inline;
