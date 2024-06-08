@@ -97,18 +97,40 @@ function getListValue(id) {
     return null;
 }
 
+function selectListValue(id, key) {
+    var element = document.getElementById(id);
+    if (element) {
+        Array.from(element.options).forEach(function (option, index) {
+            if (option.id === key) {
+                console.log(`Id ${id} : index=${index}, key=${key}, value=${option.value}`);
+                element.selectedIndex = index;
+                return;
+            }
+        });
+    }
+    else {
+        console.log(`Id ${id} : not found`);
+    }
+}
+
 async function onClickApply()
 {
     console.log("***Apply***");
 
+    // update settings object from dropdown list controls; colour settings are updated when colour picker is closed
     settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
-   
+
+    // save settings to chrome storage
+    saveSettings(settings);
+
     // send message directly to the active tab/content script
     let message = { command: "applyRequest",
                     settings: settings };
     sendMessageToTab(message);
+
+    window.close();
 };
 
 function setElementColour(classNameOrId, colour) {
@@ -120,13 +142,15 @@ function setElementColour(classNameOrId, colour) {
         e.innerText = colour;
         e.style.color = colour;
     }
+    else {
+        console.log(`Element ${classNameOrId} not found`); 
+    }
 }
 
-function saveColor(color, instance, id) {
+
+function saveColour(color, instance) {
     if (color) {
         const hexColour = color.toHEXA().toString(0);
-
-        setElementColour(id, hexColour);
 
         instance.hide();
         return hexColour;
@@ -135,40 +159,103 @@ function saveColor(color, instance, id) {
     return null;
 }
 
+
+function loadSettings() {
+    chrome.storage.local.get('mySettings')
+                        .then( (data) =>
+                        {
+                                console.log("settings loaded");
+                                if (data) {
+                                    console.log(`settings loaded: ${JSON.stringify(data)}`);
+                                    settings = data.mySettings;
+
+                                    // select item in drop down lists
+                                    selectListValue("positionList", settings.position);
+                                    selectListValue("fontSizeList", settings.fontSize);
+                                    selectListValue("fontWeightList", settings.fontWeight);
+
+                                    // Tselect color pickers and associated labels
+                                    var el = document.querySelector('.colour-picker-background');
+                                    if (el) {
+                                        const cp1 = createPicker('.colour-picker-background', settings.backgroundColour);
+                                    
+                                        cp1.on('save', (color, instance) => {
+                                            settings.backgroundColour = saveColour(color, instance);
+                                            setElementColour('#background-colour-label-id', settings.backgroundColour);
+                                            onSettingChanged();
+                                        }); 
+                                    }
+                                    setElementColour('#background-colour-label-id', settings.backgroundColour);
+                                
+                                    el = document.querySelector('.colour-picker-foreground');
+                                    if (el) {
+                                        const cp2 = createPicker('.colour-picker-foreground', settings.foregroundColour);
+                                    
+                                        cp2.on('save', (color, instance) => {
+                                            settings.foregroundColour = saveColour(color, instance);
+                                            setElementColour('#foreground-colour-label-id', settings.foregroundColour);
+                                            onSettingChanged();
+                                        }); 
+                                    }
+                                    setElementColour('#foreground-colour-label-id', settings.foregroundColour);
+                                    
+                                    el = document.querySelector('.colour-picker-border');
+                                    if (el) {
+                                        const cp3 = createPicker('.colour-picker-border', settings.borderColour);
+                                    
+                                        cp3.on('save', (color, instance) => {
+                                            settings.borderColour = saveColour(color, instance);
+                                            setElementColour('#border-colour-label-id', settings.borderColour);
+                                            onSettingChanged();
+                                        }); 
+                                    }
+                                    setElementColour('#border-colour-label-id', settings.borderColour);                                           
+                                }
+                            });
+}
+
+function saveSettings(s) {
+    console.log(`saving settings: ${JSON.stringify(s)}`);
+
+    chrome.storage.local.set({ mySettings: s })
+                        .then(() => { console.log("settings saved"); } );
+}
+
+function onSettingChanged() {
+    console.log('settings have changed');
+
+    // var fontSizeClass = 
+    // `example-text-FontSize { 
+    //     font-size: ${settings.fontSize} + "pt";
+    //  }`;
+
+    settings.fontSize = getListValue('fontSizeList');
+    settings.fontWeight = getListValue('fontWeightList');
+
+    console.log(`settings have changed: ${JSON.stringify(settings)}`);
+
+    const root = document.querySelector(':root');
+
+    root.style.setProperty('--fontSize', `${settings.fontSize}pt`);
+    root.style.setProperty('--fontWeight', `${settings.fontWeight}`);
+    root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
+    root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
+    root.style.setProperty('--borderColour', `${settings.borderColour}`);
+
+    var rs = getComputedStyle(root);
+  
+    console.log(`fontSize = ${rs.getPropertyValue('--fontSize')}`);
+    console.log(`fontWeight = ${rs.getPropertyValue('--fontWeight')}`);
+}
+
 function onLoaded()
 {
     console.log("***Loaded***");
 
+    loadSettings();
+
     // add event handlers when controls have been loaded
     document.getElementById('applySettings').addEventListener('click', onClickApply);
-
-    // add colour picker
-    var el = document.querySelector('.colour-picker-background');
-    if (el) {
-      const cp1 = createPicker('.colour-picker-background', 'cyan');
-    
-      cp1.on('save', (color, instance) => {
-          settings.backgroundColour = saveColor(color, instance, '.background-colour-label');
-      }); 
-    }
-
-    el = document.querySelector('.colour-picker-foreground');
-    if (el) {
-      const cp2 = createPicker('.colour-picker-foreground', 'green');
-    
-      cp2.on('save', (color, instance) => {
-          settings.foregroundColour = saveColor(color, instance, '.foreground-colour-label');
-      }); 
-    } 
-    
-    el = document.querySelector('.colour-picker-border');
-    if (el) {
-      const cp3 = createPicker('.colour-picker-border', '#bada55');
-    
-      cp3.on('save', (color, instance) => {
-          settings.borderColour = saveColor(color, instance, '.border-colour-label');
-      }); 
-    }
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

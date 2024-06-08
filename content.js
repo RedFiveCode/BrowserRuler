@@ -46,6 +46,20 @@ function subscribe() {
             return false; // false means no response for this message
         }       
     });
+
+    // load settings from chrome storage
+    chrome.storage.local.get('mySettings')
+                        .then( (data) => {
+                                        console.log("settings loaded");
+                                        if (data) {
+                                            console.log(`settings loaded: ${JSON.stringify(data)}`);
+
+                                            currentSettings = data.mySettings;
+
+                                            updateDocument(currentSettings);
+                                            OnResize();
+                                        }
+                        });
 }
 
 function OnApplyRequest(payload)
