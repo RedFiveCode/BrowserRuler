@@ -68,14 +68,14 @@ function OnResize(e) {
     let myDiv = document.getElementById(statusDivId);
 
     if (myDiv !== null) {
-        myDiv.innerText = createStatusText(window.innerWidth, window.innerHeight);
+        myDiv.innerText = getFormattedWidthText(window.innerWidth, window.innerHeight);
     }
     else {
         console.log(`Element '${statusDivId}' not found`);
     }
 }
     
-function createStatusText(width, height) {
+function getFormattedWidthText(width, height) {
     return `${width} x ${height}`;
 }
 
