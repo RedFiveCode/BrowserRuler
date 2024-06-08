@@ -79,35 +79,6 @@ function createStatusText(width, height) {
     return `${width} x ${height}`;
 }
 
-function createStyleElement(id) {
-    const myStyle = document.createElement("style");
-
-    myStyle.id = id;
-    myStyle.href = chrome.runtime.getURL("content.css");
-    
-    return myStyle;
-}
-
-function createStatusDivElement(id, settings) {
-    const myDiv = document.createElement("div");
-    
-    myDiv.id = id;
-    myDiv.classList.add("status-text");
-    myDiv.classList.add(getPositionClassName(settings));
-    
-    return myDiv;
-}
-
-function removeElementById(id) {
-    let e = document.getElementById(id);
-    if (e) {
-        console.log(`Removing element ${id}`);
-
-        //e.disabled = true;
-        e.parentNode.removeChild(e);
-    }
-}
-
 async function updateDocument(settings) {
     
     console.log("Adding stylesheet and div elements");
@@ -145,49 +116,4 @@ function getPositionClassName(settings) {
     }
 
     return "SW"; // default
-}
-
-function getFontSize(settings) {
-    if (settings && settings.fontSize)
-    {
-        return settings.fontSize + "pt";
-    }
-
-    return "12pt"; // default
-}
-
-function getFontWeight(settings) {
-    if (settings && settings.fontWeight)
-    {
-        return settings.fontWeight;
-    }
-
-    return "normal"; // default
-}
-
-function getBackgroundColour(settings) {
-    if (settings && settings.backgroundColour)
-    {
-        return settings.backgroundColour;
-    }
-
-    return "#bada557F"; // default    
-}
-
-function getForegroundColour(settings) {
-    if (settings && settings.foregroundColour)
-    {
-        return settings.foregroundColour;
-    }
-
-    return "navy"; // default    
-}
-
-function getBorderColour(settings) {
-    if (settings && settings.borderColour)
-    {
-        return settings.borderColour;
-    }
-
-    return "#bada55"; // default    
 }
