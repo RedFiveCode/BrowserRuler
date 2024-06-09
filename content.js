@@ -9,8 +9,9 @@ let currentSettings = {
     fontWeight: "bold",
     backgroundColour: "#bada557F",
     foregroundColour: "navy",
-    borderColour: "#bada55"
- }
+    borderColour: "#bada55",
+    borderMargin: "25px"
+}
 
 console.log("Content");
 
@@ -99,11 +100,12 @@ async function updateDocument(settings) {
 
     // update CSS variables
     const root = document.querySelector(':root');
-    root.style.setProperty('--fontSize', `${settings.fontSize}pt`);
+    root.style.setProperty('--fontSize', `${settings.fontSize}pt`); // convert to points
     root.style.setProperty('--fontWeight', `${settings.fontWeight}`);
     root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
     root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
+    root.style.setProperty('--borderMargin', `${settings.borderMargin}px`); // convert to pixels
 
     let myDiv = document.getElementById(statusDivId);
   

@@ -6,7 +6,8 @@ let settings = {
     fontWeight: "normal",
     backgroundColour: "magenta",
     foregroundColour: "white",
-    borderColour: "red"
+    borderColour: "red",
+    borderMargin: 25
  };
 
  
@@ -129,6 +130,7 @@ async function onClickApply()
     settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
+    settings.borderMargin = getListValue('borderMarginList');
 
     // save settings to chrome storage
     saveSettings(settings);
@@ -180,6 +182,7 @@ function loadSettings() {
                                     selectListValue("positionList", settings.position);
                                     selectListValue("fontSizeList", settings.fontSize);
                                     selectListValue("fontWeightList", settings.fontWeight);
+                                    selectListValue("borderMarginList", settings.borderMargin);
 
                                     // select colour pickers and associated labels
                                     setElementColour('#foreground-colour-label-id', settings.foregroundColour);
@@ -223,6 +226,7 @@ function onSettingChanged() {
     settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
+    settings.borderMargin = getListValue('borderMarginList');
 
     console.log(`settings have changed: ${JSON.stringify(settings)}`);
 
@@ -233,19 +237,13 @@ function onSettingChanged() {
     root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
     root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
-    // position is not used in the example text / stylesheet for popup
-
-    var rs = getComputedStyle(root);
-  
-    console.log(`fontSize = ${rs.getPropertyValue('--fontSize')}`);
-    console.log(`fontWeight = ${rs.getPropertyValue('--fontWeight')}`);
+    // position and borderMargin are not used in the example text / stylesheet for popup
 }
 
 function onChanged(e) {
     console.log(`${e.srcElement.id} changed : ${e.srcElement.value}, ${getListValue(e.srcElement.id)}`);
     onSettingChanged();
 }
-
 
 function onLoaded()
 {
@@ -259,6 +257,7 @@ function onLoaded()
     document.getElementById('positionList').onchange = onChanged;
     document.getElementById('fontSizeList').onchange = onChanged;
     document.getElementById('fontWeightList').onchange = onChanged;
+    document.getElementById('borderMarginList').onchange = onChanged;
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

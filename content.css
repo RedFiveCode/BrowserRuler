@@ -5,6 +5,7 @@
     --backgroundColour: #bada557F;
     --foregroundColour: navy;
     --borderColour: #bada55;
+    --borderMargin: 25px;
 }
 
 .status-text { 
@@ -26,18 +27,18 @@
  }
 
 .status-text-position-SW {
-    left: 24px;
-    bottom: 24px;
+    left: var(--borderMargin);
+    bottom: var(--borderMargin);
 }
 .status-text-position-NW {
-    left: 24px;
-    top: 24px;
+    left: var(--borderMargin);
+    top: var(--borderMargin);
 }  
 .status-text-position-NE {
-    right: 24px;
-    top: 24px;
+    right: var(--borderMargin);
+    top: var(--borderMargin);
 }  
 .status-text-position-SE {
-    right: 24px;
-    bottom: 24px;
+    right: var(--borderMargin);
+    bottom: var(--borderMargin);
 } 
