@@ -157,7 +157,6 @@ function setElementColour(id, colour) {
     }
 }
 
-
 function getSelectedColour(color, instance) {
     if (color) {
         const hexColour = color.toHEXA().toString(0);
@@ -188,6 +187,9 @@ function loadSettings() {
                                     setElementColour('#foreground-colour-label-id', settings.foregroundColour);
                                     setElementColour('#background-colour-label-id', settings.backgroundColour);
                                     setElementColour('#border-colour-label-id', settings.borderColour);   
+
+                                    // set example text settings based on settings just loaded
+                                    onSettingChanged();
 
                                     const foregroundColourPicker = createPicker('.colour-picker-foreground', settings.foregroundColour);
                                     foregroundColourPicker.on('save', (color, instance) => {
