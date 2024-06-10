@@ -4,6 +4,7 @@ const stylesId = "browser-ruler-styles-id";
 const statusDivId = "browser-ruler-status-div";
 
 let currentSettings = { 
+    enabled: true,
     position: "SW",
     fontSize: "12", // point
     fontWeight: "bold",
@@ -106,6 +107,7 @@ async function updateDocument(settings) {
     root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
     root.style.setProperty('--borderMargin', `${settings.borderMargin}px`); // convert to pixels
+    root.style.setProperty('--displayMode', settings.enabled ? 'inline-block' : 'none');
 
     let myDiv = document.getElementById(statusDivId);
   

@@ -1,6 +1,7 @@
 console.log("***Popup***");
 
 let settings = {
+    enabled: true, // enabled
     position: "SE",
     fontSize: 16,
     fontWeight: "normal",
@@ -122,11 +123,38 @@ function selectListValue(id, key) {
     }
 }
 
+function setSliderValue(id, value) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.value = value ? 1 : 0;
+        console.log(`set value: ${value}, element.value: ${element.value}`);
+    }
+    else {
+        console.log(`Id ${id} : not found`);
+    }
+}
+
+function getSliderValue(id) {
+    var element = document.getElementById(id);
+    if (element) {
+
+        console.log(`get element.value: ${element.value}`);
+
+        return element.value === '1' ? true : false;
+    }
+    else {
+        console.log(`Id ${id} : not found`);
+
+        return false;
+    }
+}
+
 async function onClickApply()
 {
     console.log("***Apply***");
 
     // update settings object from dropdown list controls; colour settings are updated when colour picker is closed
+    settings.enabled = getSliderValue('enabledSlider');
     settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
@@ -177,6 +205,9 @@ function loadSettings() {
                                     console.log(`settings loaded: ${JSON.stringify(data)}`);
                                     settings = data.mySettings;
 
+                                    // set slider
+                                    setSliderValue('enabledSlider', settings.enabled);
+
                                     // select item in drop down lists
                                     selectListValue("positionList", settings.position);
                                     selectListValue("fontSizeList", settings.fontSize);
@@ -225,6 +256,7 @@ function saveSettings(s) {
 function onSettingChanged() {
     console.log('settings have changed');
 
+    settings.enabled = getSliderValue('enabledSlider');
     settings.position = getListValue('positionList');
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');

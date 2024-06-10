@@ -6,6 +6,7 @@
     --foregroundColour: navy;
     --borderColour: #bada55;
     --borderMargin: 25px;
+    --displayMode: inline-block;
 }
 
 .status-text { 
@@ -22,7 +23,7 @@
     font-size: var(--fontSize);
     font-weight: var(--fontWeight);
     font-family: sans-serif;
-    display: inline-block;
+    display: var(--displayMode);
     padding: 10px;
  }
 

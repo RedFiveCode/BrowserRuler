@@ -25,6 +25,10 @@ h1
     padding-right: 10px;
 }
 
+.value {
+    vertical-align: text-top;
+}
+
 .colour-container {
     display: flex;
     align-items: center;
@@ -48,8 +52,15 @@ h1
     border-color: var(--borderColour);
 }
 
-
 .pickr {
     display: inline;
     margin-right: 6px;
+}
+
+.dropdownlist {
+    width: 100px;
+}
+
+.slider {
+    width: 40px;
 }

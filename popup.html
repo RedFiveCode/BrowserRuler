@@ -8,10 +8,18 @@
     <h1>Browser Ruler</h1>
 
     <table>
+
+      <tr>
+        <td class="caption">Enabled</td>
+        <td class="value">
+          <input type="range" id="enabledSlider" class="slider" min="0" max="1" />
+        </td>
+      </tr>
+      
       <tr>
         <td class="caption">Position</td>
         <td class="value">
-          <select id="positionList">
+          <select id="positionList" class="dropdownlist">
             <option id="NW">Top left</option>
             <option id="NE">Top right</option>
             <option id="SE">Bottom right</option>
@@ -23,7 +31,7 @@
       <tr>
         <td class="caption">Font size</td>
         <td class="value">
-          <select id="fontSizeList">
+          <select id="fontSizeList" class="dropdownlist">
             <option id="8">8 pt</option>
             <option id="10">10 pt</option>
             <option id="12">12 pt</option>
@@ -40,7 +48,7 @@
       <tr>
         <td class="caption">Font weight</td>
         <td class="value">
-          <select id="fontWeightList">
+          <select id="fontWeightList" class="dropdownlist">
             <option id="100">Thin</option>
             <option id="300">Light</option>
             <option id="400">Normal</option>
@@ -55,7 +63,7 @@
       <tr>
         <td class="caption">Border margin</td>
         <td class="value">
-          <select id="borderMarginList">
+          <select id="borderMarginList" class="dropdownlist">
             <option id="0">0 px</option>
             <option id="10">10 px</option>
             <option id="15">15 px</option>
