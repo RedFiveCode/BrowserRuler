@@ -9,37 +9,41 @@
     --displayMode: inline-block;
 }
 
-.status-text { 
-    position: fixed;
-    z-index: 9999;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: medium;
-    border-color: var(--borderColour);    
+/* don't show the overlay when printing; only on screen */
+ @media not print {
+    .status-text { 
+        position: fixed;
+        z-index: 9999;
+        border-radius: 10px;
+        border-style: solid;
+        border-width: medium;
+        border-color: var(--borderColour);    
 
-    background: var(--backgroundColour);
-    color: var(--foregroundColour);
-    
-    font-size: var(--fontSize);
-    font-weight: var(--fontWeight);
-    font-family: sans-serif;
-    display: var(--displayMode);
-    padding: 10px;
- }
+        background: var(--backgroundColour);
+        color: var(--foregroundColour);
+        
+        font-size: var(--fontSize);
+        font-weight: var(--fontWeight);
+        font-family: sans-serif;
+        display: var(--displayMode);
+        padding: 10px;
+    }
 
-.status-text-position-SW {
-    left: var(--borderMargin);
-    bottom: var(--borderMargin);
+    .status-text-position-SW {
+        left: var(--borderMargin);
+        bottom: var(--borderMargin);
+    }
+    .status-text-position-NW {
+        left: var(--borderMargin);
+        top: var(--borderMargin);
+    }  
+    .status-text-position-NE {
+        right: var(--borderMargin);
+        top: var(--borderMargin);
+    }  
+    .status-text-position-SE {
+        right: var(--borderMargin);
+        bottom: var(--borderMargin);
+    } 
+
 }
-.status-text-position-NW {
-    left: var(--borderMargin);
-    top: var(--borderMargin);
-}  
-.status-text-position-NE {
-    right: var(--borderMargin);
-    top: var(--borderMargin);
-}  
-.status-text-position-SE {
-    right: var(--borderMargin);
-    bottom: var(--borderMargin);
-} 
