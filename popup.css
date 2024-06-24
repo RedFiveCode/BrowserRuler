@@ -73,7 +73,8 @@ h1
       "caption6 value6"
       "caption7 value7"
       "caption8 value8"
-      "caption9 value9";     
+      "caption9 value9"
+      "caption10 value10";
   
     grid-row-gap: 6px;
     grid-column-gap: 6px;
@@ -115,3 +116,7 @@ h1
 
 .caption9 { grid-area: caption9; }
 .value9 {  grid-area: value9; }
+
+.caption10 { grid-area: caption10; }
+.value10 {  grid-area: value10; }
+

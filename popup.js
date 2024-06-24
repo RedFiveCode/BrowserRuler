@@ -3,12 +3,13 @@ console.log("***Popup***");
 let settings = {
     enabled: true, // enabled
     position: "SE",
-    fontSize: 16,
+    fontSize: 16, // pixels
     fontWeight: "normal",
     backgroundColour: "magenta",
     foregroundColour: "white",
     borderColour: "red",
-    borderMargin: 25
+    borderMargin: 25, // pixels
+    fadeInterval: 5 // seconds
  };
 
  
@@ -159,6 +160,7 @@ async function onClickApply()
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
     settings.borderMargin = getListValue('borderMarginList');
+    settings.fadeInterval = getListValue('fadeIntervalList');
 
     // save settings to chrome storage
     saveSettings(settings);
@@ -213,6 +215,7 @@ function loadSettings() {
                                     selectListValue("fontSizeList", settings.fontSize);
                                     selectListValue("fontWeightList", settings.fontWeight);
                                     selectListValue("borderMarginList", settings.borderMargin);
+                                    selectListValue("fadeIntervalList", settings.fadeInterval);
 
                                     // select colour pickers and associated labels
                                     setElementColour('foreground-colour-label-id', settings.foregroundColour);
@@ -261,6 +264,7 @@ function onSettingChanged() {
     settings.fontSize = getListValue('fontSizeList');
     settings.fontWeight = getListValue('fontWeightList');
     settings.borderMargin = getListValue('borderMarginList');
+    settings.fadeInterval = getListValue('fadeIntervalList');
 
     console.log(`settings have changed: ${JSON.stringify(settings)}`);
 
@@ -271,7 +275,7 @@ function onSettingChanged() {
     root.style.setProperty('--backgroundColour', `${settings.backgroundColour}`);
     root.style.setProperty('--foregroundColour', `${settings.foregroundColour}`);
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
-    // position and borderMargin are not used in the example text / stylesheet for popup
+    // fadeInterval, position and borderMargin are not used in the example text / stylesheet for popup
 }
 
 function onChanged(e) {
@@ -292,6 +296,7 @@ function onLoaded()
     document.getElementById('fontSizeList').onchange = onChanged;
     document.getElementById('fontWeightList').onchange = onChanged;
     document.getElementById('borderMarginList').onchange = onChanged;
+    document.getElementById('fadeIntervalList').onchange = onChanged;
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);
