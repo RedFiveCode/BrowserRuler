@@ -7,6 +7,7 @@
     --borderColour: #bada55;
     --borderMargin: 25px;
     --displayMode: inline-block;
+    --fadeInterval: 5s;
 }
 
 /* don't show the overlay when printing; only on screen */
@@ -46,4 +47,23 @@
         bottom: var(--borderMargin);
     } 
 
-}
+    .animate-fading {
+        animation-name: fade-out;
+        animation-duration: var(--fadeInterval);
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: forwards; /* keep state of last keyframe */
+    }
+    
+    @keyframes fade-out {
+        0%   { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    .reset-opacity {
+        opacity: 1;
+    }
+
+} /* media */

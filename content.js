@@ -11,7 +11,8 @@ let currentSettings = {
     backgroundColour: "#bada557F",
     foregroundColour: "navy",
     borderColour: "#bada55",
-    borderMargin: "25px"
+    borderMargin: 25, // pixels
+    fadeInterval: 5 // seconds
 }
 
 console.log("Content");
@@ -84,6 +85,9 @@ function OnResize(e) {
     let myDiv = document.getElementById(statusDivId);
 
     if (myDiv !== null) {
+
+        addOrRemoveAnimation(myDiv);
+
         myDiv.innerText = getFormattedWidthText(window.innerWidth, window.innerHeight);
     }
     else {
@@ -93,6 +97,31 @@ function OnResize(e) {
     
 function getFormattedWidthText(width, height) {
     return `${width} x ${height}`;
+}
+
+function addOrRemoveAnimation(element) {
+    console.log(`addOrRemoveAnimation: fadeInterval=${currentSettings.fadeInterval}`);
+
+    if (currentSettings.fadeInterval === "0") {
+        // remove animation, reset opacity
+        element.classList.remove('animate-fading');
+        element.classList.add('reset-opacity');
+    }
+    else {
+        element.classList.remove('reset-opacity');
+        element.classList.add('animate-fading');
+        restartAnimations(element);
+    }
+}
+
+function restartAnimations(element) {
+    // from https://www.bram.us/2022/07/20/javascript-restart-all-animations-of-an-element/
+    // and https://stackoverflow.com/questions/6268508
+
+    element.getAnimations().forEach(anim => {
+        anim.cancel();
+        anim.play();
+    });
 }
 
 async function updateDocument(settings) {
@@ -108,6 +137,7 @@ async function updateDocument(settings) {
     root.style.setProperty('--borderColour', `${settings.borderColour}`);
     root.style.setProperty('--borderMargin', `${settings.borderMargin}px`); // convert to pixels
     root.style.setProperty('--displayMode', settings.enabled ? 'inline-block' : 'none');
+    root.style.setProperty('--fadeInterval', `${settings.fadeInterval}s`); // convert to seconds
 
     let myDiv = document.getElementById(statusDivId);
   
@@ -115,6 +145,8 @@ async function updateDocument(settings) {
         // remove status-text-position-SW etc class, keep status-text class
         myDiv.classList = 'status-text';
         myDiv.classList.add(getPositionClassName(settings));
+
+        addOrRemoveAnimation(myDiv);
     }
 }
 
