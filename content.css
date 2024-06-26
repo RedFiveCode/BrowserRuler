@@ -37,15 +37,22 @@
     .status-text-position-NW {
         left: var(--borderMargin);
         top: var(--borderMargin);
-    }  
+    }
     .status-text-position-NE {
         right: var(--borderMargin);
         top: var(--borderMargin);
-    }  
+    }
     .status-text-position-SE {
         right: var(--borderMargin);
         bottom: var(--borderMargin);
-    } 
+    }
+    .status-text-position-Centre {
+        /* https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
     .animate-fading {
         animation-name: fade-out;
