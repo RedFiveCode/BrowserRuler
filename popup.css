@@ -63,7 +63,7 @@ h1
     grid-template-rows: auto;
     grid-template-columns: 125px auto;
   
-    grid-template-areas: 
+    grid-template-areas:
       "caption1 value1" 
       "caption2 value2"
       "caption3 value3"

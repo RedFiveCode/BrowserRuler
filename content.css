@@ -18,7 +18,7 @@
         border-radius: 10px;
         border-style: solid;
         border-width: medium;
-        border-color: var(--borderColour);    
+        border-color: var(--borderColour);
 
         background: var(--backgroundColour);
         color: var(--foregroundColour);
