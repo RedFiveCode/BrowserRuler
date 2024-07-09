@@ -1,9 +1,8 @@
 :root {
     --fontSize: 14pt;
     --fontWeight: normal;
-    --foregroundColour:
-    --backgroundColour: #bada557F;
     --foregroundColour: navy;
+    --backgroundColour: #bada557F;
     --borderColour: #bada55;
 }
 
@@ -120,3 +119,14 @@ h1
 .caption10 { grid-area: caption10; }
 .value10 {  grid-area: value10; }
 
+.foreground-colour-label {
+    color: var(--foregroundColour);
+}
+
+.background-colour-label {
+    color: var(--backgroundColour);
+}
+
+.border-colour-label {
+    color: var(--borderColour);
+}

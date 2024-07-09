@@ -59,7 +59,8 @@ class Shared {
             console.log(`Updating ${id} to ${colour}`);
 
             element.innerText = colour;
-            element.style.color = colour;
+            // foregound colour is set with css variables
+            //element.style.color = colour;
         }
         else {
             console.log(`Element id ${id} not found`); 
