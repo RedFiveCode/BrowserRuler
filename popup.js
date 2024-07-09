@@ -96,71 +96,17 @@ function createPicker(placeholderElementClassName, defaultColour) {
     });
  }
 
-function getListValue(id) {
-    var element = document.getElementById(id);
-    if (element) {
-        console.log(`Id ${id} : value=${element.value}, index=${element.selectedIndex}, id=${element[element.selectedIndex].id}`);
-
-        return element[element.selectedIndex].id;
-    }
-
-    console.log(`Id ${id} : not found`);
-    return null;
-}
-
-function selectListValue(id, key) {
-    var element = document.getElementById(id);
-    if (element) {
-        Array.from(element.options).forEach(function (option, index) {
-            if (option.id === key) {
-                console.log(`Id ${id} : index=${index}, key=${key}, value=${option.value}`);
-                element.selectedIndex = index;
-                return;
-            }
-        });
-    }
-    else {
-        console.log(`Id ${id} : not found`);
-    }
-}
-
-function setSliderValue(id, value) {
-    var element = document.getElementById(id);
-    if (element) {
-        element.value = value ? 1 : 0;
-        console.log(`set value: ${value}, element.value: ${element.value}`);
-    }
-    else {
-        console.log(`Id ${id} : not found`);
-    }
-}
-
-function getSliderValue(id) {
-    var element = document.getElementById(id);
-    if (element) {
-
-        console.log(`get element.value: ${element.value}`);
-
-        return element.value === '1' ? true : false;
-    }
-    else {
-        console.log(`Id ${id} : not found`);
-
-        return false;
-    }
-}
-
 async function onClickApply()
 {
     console.log("***Apply***");
 
     // update settings object from dropdown list controls; colour settings are updated when colour picker is closed
-    settings.enabled = getSliderValue('enabledSlider');
-    settings.position = getListValue('positionList');
-    settings.fontSize = getListValue('fontSizeList');
-    settings.fontWeight = getListValue('fontWeightList');
-    settings.borderMargin = getListValue('borderMarginList');
-    settings.fadeInterval = getListValue('fadeIntervalList');
+    settings.enabled = Shared.getSliderValue(document, 'enabledSlider');
+    settings.position = Shared.getListValue(document, 'positionList');
+    settings.fontSize = Shared.getListValue(document, 'fontSizeList');
+    settings.fontWeight = Shared.getListValue(document, 'fontWeightList');
+    settings.borderMargin = Shared.getListValue(document, 'borderMarginList');
+    settings.fadeInterval = Shared.getListValue(document, 'fadeIntervalList');
 
     // save settings to chrome storage
     saveSettings(settings);
@@ -172,20 +118,6 @@ async function onClickApply()
 
     window.close();
 };
-
-function setElementColour(id, colour) {
-    const e = document.getElementById(id);
-  
-    if (e) {
-        console.log(`Updating ${id} to ${colour}`); 
-  
-        e.innerText = colour;
-        e.style.color = colour;
-    }
-    else {
-        console.log(`Element id ${id} not found`); 
-    }
-}
 
 function getSelectedColour(color, instance) {
     if (color) {
@@ -208,19 +140,19 @@ function loadSettings() {
                                     settings = data.mySettings;
 
                                     // set slider
-                                    setSliderValue('enabledSlider', settings.enabled);
+                                    Shared.setSliderValue(document, 'enabledSlider', settings.enabled);
 
                                     // select item in drop down lists
-                                    selectListValue("positionList", settings.position);
-                                    selectListValue("fontSizeList", settings.fontSize);
-                                    selectListValue("fontWeightList", settings.fontWeight);
-                                    selectListValue("borderMarginList", settings.borderMargin);
-                                    selectListValue("fadeIntervalList", settings.fadeInterval);
+                                    Shared.selectListValue(document, "positionList", settings.position);
+                                    Shared.selectListValue(document, "fontSizeList", settings.fontSize);
+                                    Shared.selectListValue(document, "fontWeightList", settings.fontWeight);
+                                    Shared.selectListValue(document, "borderMarginList", settings.borderMargin);
+                                    Shared.selectListValue(document, "fadeIntervalList", settings.fadeInterval);
 
                                     // select colour pickers and associated labels
-                                    setElementColour('foreground-colour-label-id', settings.foregroundColour);
-                                    setElementColour('background-colour-label-id', settings.backgroundColour);
-                                    setElementColour('border-colour-label-id', settings.borderColour);   
+                                    Shared.setElementColour(document, 'foreground-colour-label-id', settings.foregroundColour);
+                                    Shared.setElementColour(document, 'background-colour-label-id', settings.backgroundColour);
+                                    Shared.setElementColour(document, 'border-colour-label-id', settings.borderColour);   
 
                                     // set example text settings based on settings just loaded
                                     onSettingChanged();
@@ -228,21 +160,21 @@ function loadSettings() {
                                     const foregroundColourPicker = createPicker('.colour-picker-foreground', settings.foregroundColour);
                                     foregroundColourPicker.on('save', (color, instance) => {
                                         settings.foregroundColour = getSelectedColour(color, instance);
-                                        setElementColour('foreground-colour-label-id', settings.foregroundColour);
+                                        Shared.setElementColour(document, 'foreground-colour-label-id', settings.foregroundColour);
                                         onSettingChanged();
                                     }); 
 
                                     const backgroundColourPicker = createPicker('.colour-picker-background', settings.backgroundColour);                               
                                     backgroundColourPicker.on('save', (color, instance) => {
                                         settings.backgroundColour = getSelectedColour(color, instance);
-                                        setElementColour('background-colour-label-id', settings.backgroundColour);
+                                        Shared.setElementColour(document, 'background-colour-label-id', settings.backgroundColour);
                                         onSettingChanged();
                                     }); 
                                                                    
                                     const borderColourPicker = createPicker('.colour-picker-border', settings.borderColour);
                                     borderColourPicker.on('save', (color, instance) => {
                                         settings.borderColour = getSelectedColour(color, instance);
-                                        setElementColour('border-colour-label-id', settings.borderColour);
+                                        Shared.setElementColour(document, 'border-colour-label-id', settings.borderColour);
                                         onSettingChanged();
                                     }); 
                                 }
@@ -259,12 +191,12 @@ function saveSettings(s) {
 function onSettingChanged() {
     console.log('settings have changed');
 
-    settings.enabled = getSliderValue('enabledSlider');
-    settings.position = getListValue('positionList');
-    settings.fontSize = getListValue('fontSizeList');
-    settings.fontWeight = getListValue('fontWeightList');
-    settings.borderMargin = getListValue('borderMarginList');
-    settings.fadeInterval = getListValue('fadeIntervalList');
+    settings.enabled = Shared.getSliderValue(document, 'enabledSlider');
+    settings.position = Shared.getListValue(document, 'positionList');
+    settings.fontSize = Shared.getListValue(document, 'fontSizeList');
+    settings.fontWeight = Shared.getListValue(document, 'fontWeightList');
+    settings.borderMargin = Shared.getListValue(document, 'borderMarginList');
+    settings.fadeInterval = Shared.getListValue(document, 'fadeIntervalList');
 
     console.log(`settings have changed: ${JSON.stringify(settings)}`);
 
@@ -279,7 +211,7 @@ function onSettingChanged() {
 }
 
 function onChanged(e) {
-    console.log(`${e.srcElement.id} changed : ${e.srcElement.value}, ${getListValue(e.srcElement.id)}`);
+    console.log(`${e.srcElement.id} changed : ${e.srcElement.value}, ${Shared.getListValue(document, e.srcElement.id)}`);
     onSettingChanged();
 }
 
