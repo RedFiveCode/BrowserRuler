@@ -150,9 +150,9 @@ function loadSettings() {
                                     Shared.selectListValue(document, "fadeIntervalList", settings.fadeInterval);
 
                                     // select colour pickers and associated labels
-                                    Shared.setElementColour(document, 'foreground-colour-label-id', settings.foregroundColour);
-                                    Shared.setElementColour(document, 'background-colour-label-id', settings.backgroundColour);
-                                    Shared.setElementColour(document, 'border-colour-label-id', settings.borderColour);   
+                                    Shared.setElementText(document, 'foreground-colour-label-id', settings.foregroundColour);
+                                    Shared.setElementText(document, 'background-colour-label-id', settings.backgroundColour);
+                                    Shared.setElementText(document, 'border-colour-label-id', settings.borderColour);
 
                                     // set example text settings based on settings just loaded
                                     onSettingChanged();
@@ -160,21 +160,21 @@ function loadSettings() {
                                     const foregroundColourPicker = createPicker('.colour-picker-foreground', settings.foregroundColour);
                                     foregroundColourPicker.on('save', (color, instance) => {
                                         settings.foregroundColour = getSelectedColour(color, instance);
-                                        Shared.setElementColour(document, 'foreground-colour-label-id', settings.foregroundColour);
+                                        Shared.setElementText(document, 'foreground-colour-label-id', settings.foregroundColour);
                                         onSettingChanged();
                                     }); 
 
-                                    const backgroundColourPicker = createPicker('.colour-picker-background', settings.backgroundColour);                               
+                                    const backgroundColourPicker = createPicker('.colour-picker-background', settings.backgroundColour);
                                     backgroundColourPicker.on('save', (color, instance) => {
                                         settings.backgroundColour = getSelectedColour(color, instance);
-                                        Shared.setElementColour(document, 'background-colour-label-id', settings.backgroundColour);
+                                        Shared.setElementText(document, 'background-colour-label-id', settings.backgroundColour);
                                         onSettingChanged();
                                     }); 
-                                                                   
+
                                     const borderColourPicker = createPicker('.colour-picker-border', settings.borderColour);
                                     borderColourPicker.on('save', (color, instance) => {
                                         settings.borderColour = getSelectedColour(color, instance);
-                                        Shared.setElementColour(document, 'border-colour-label-id', settings.borderColour);
+                                        Shared.setElementText(document, 'border-colour-label-id', settings.borderColour);
                                         onSettingChanged();
                                     }); 
                                 }

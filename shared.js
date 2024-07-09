@@ -53,14 +53,13 @@ class Shared {
         }
     }
 
-    static setElementColour(document, id, colour) {
+    static setElementText(document, id, colour) {
         const element = document.getElementById(id);
         if (element) {
             console.log(`Updating ${id} to ${colour}`);
 
             element.innerText = colour;
             // foregound colour is set with css variables
-            //element.style.color = colour;
         }
         else {
             console.log(`Element id ${id} not found`); 
