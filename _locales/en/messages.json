@@ -123,5 +123,22 @@
     },
     "borderMargin40": {
         "message": "40 px"
+    },
+
+    "fade": {
+        "message": "Fade ",
+        "description": "Fade interval"
+    },
+    "fadeOff": {
+        "message": "Off"
+    },
+    "fade2": {
+        "message": "2 seconds"
+    },
+    "fade5": {
+        "message": "5 seconds"
+    },
+    "fade10": {
+        "message": "10 seconds"
     }
 }
