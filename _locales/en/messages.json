@@ -1,0 +1,16 @@
+{
+    "widthHeight": {
+        "message": "$width$ x $height$",
+        "description": "Width and height in pixels",
+        "placeholders": {
+            "width" : {
+                "content": "$1",
+                "example": "1920"
+            },
+            "height" : {
+                "content": "$2",
+                "example": "1280"
+            }
+        }
+    }
+}

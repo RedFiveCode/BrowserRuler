@@ -96,7 +96,7 @@ function OnResize(e) {
 }
     
 function getFormattedWidthText(width, height) {
-    return `${width} x ${height}`;
+    return chrome.i18n.getMessage("widthHeight", [width, height]);
 }
 
 function addOrRemoveAnimation(element) {
