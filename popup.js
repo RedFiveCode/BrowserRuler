@@ -215,6 +215,26 @@ function onChanged(e) {
     onSettingChanged();
 }
 
+function loadTranslationResources() {
+    // HTML items with translation strings have a data-i18n attribute, for example data-i18n="position"
+    // the attribute value (for example "position") is the key to lookup in the messages.json file
+
+    const elements = document.querySelectorAll('[data-i18n]');
+
+    console.log(`Found ${elements.length} i18n key(s)`);
+
+    for (i = 0; i < elements.length; i++) {
+        if (elements[i].dataset && elements[i].dataset.i18n) {
+            const key = elements[i].dataset.i18n;
+            const message = chrome.i18n.getMessage(key);
+
+            console.log(`Found i18n key '${key}' => '${message}'`);
+
+            elements[i].innerHTML = message;
+        }
+    }
+}
+
 function onLoaded()
 {
     console.log("***Loaded***");
@@ -229,6 +249,8 @@ function onLoaded()
     document.getElementById('fontWeightList').onchange = onChanged;
     document.getElementById('borderMarginList').onchange = onChanged;
     document.getElementById('fadeIntervalList').onchange = onChanged;
+
+    loadTranslationResources();
 }
 
 document.addEventListener("DOMContentLoaded", onLoaded);

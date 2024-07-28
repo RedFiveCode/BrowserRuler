@@ -12,5 +12,63 @@
                 "example": "1280"
             }
         }
+    },
+
+    "position": {
+        "message": "Position",
+        "description": "Position caption"
+    },
+    "positionNW": {
+        "message": "Top left",
+        "description": "Position value top left"
+    },
+    "positionNE": {
+        "message": "Top right",
+        "description": "Position vale top right"
+    },
+    "positionSE": {
+        "message": "Bottom right",
+        "description": "Position caption bottom right"
+    },
+    "positionSW": {
+        "message": "Bottom left",
+        "description": "Position caption bottom left"
+    },
+    "positionCentre": {
+        "message": "Centre",
+        "description": "Position caption centre"
+    },
+
+    "fontSize": {
+        "message": " Font size",
+        "description": "Font size caption"
+    },
+    "fontSize8pt": {
+        "message": "8 pt",
+        "description": "Font size in points"
+    },
+    "fontSize10pt": {
+        "message": "10 pt"
+    },
+    "fontSize12pt": {
+        "message": "12 pt"
+    },
+    "fontSize14pt": {
+        "message": "14 pt"
+    },
+    "fontSize18pt": {
+        "message": "18 pt"
+    },
+    "fontSize24pt": {
+        "message": "24 pt"
+    },
+    "fontSize36pt": {
+        "message": "36 pt"
+    },
+    "fontSize48pt": {
+        "message": "48 pt"
+    },
+    "fontSize72pt": {
+        "message": "72 pt"
     }
 }
