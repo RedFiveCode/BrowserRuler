@@ -97,5 +97,31 @@
     },
     "fontWeight800": {
         "message": "ZZZExtra bold"
+    },
+
+    "borderMargin": {
+        "message": "Border margin",
+        "description": "Border margin in pixels"
+    },
+    "borderMargin0": {
+        "message": "0 px"
+    },
+    "borderMargin10": {
+        "message": "10 px"
+    },
+    "borderMargin15": {
+        "message": "15 px"
+    },
+    "borderMargin20": {
+        "message": "20 px"
+    },
+    "borderMargin25": {
+        "message": "25 px"
+    },
+    "borderMargin30": {
+        "message": "30 px"
+    },
+    "borderMargin40": {
+        "message": "40 px"
     }
 }
