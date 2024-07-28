@@ -101,10 +101,11 @@
 
     "borderMargin": {
         "message": "Border margin",
-        "description": "Border margin in pixels"
+        "description": "Border margin caption"
     },
     "borderMargin0": {
-        "message": "0 px"
+        "message": "0 px",
+        "description": "Border margin in pixels"
     },
     "borderMargin10": {
         "message": "10 px"
@@ -127,7 +128,7 @@
 
     "fade": {
         "message": "Fade ",
-        "description": "Fade interval"
+        "description": "Fade interval caption"
     },
     "fadeOff": {
         "message": "Off"
@@ -140,5 +141,18 @@
     },
     "fade10": {
         "message": "10 seconds"
+    },
+
+    "foregroundColour": {
+        "message": "Foreground colour",
+        "description": "Foreground colour caption"
+    },
+    "backgroundColour": {
+        "message": "Background colour",
+        "description": "Background colour caption"
+    },
+    "borderColour": {
+        "message": "Border colour",
+        "description": "Border colour caption"
     }
 }
