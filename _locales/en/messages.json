@@ -70,5 +70,32 @@
     },
     "fontSize72pt": {
         "message": "72 pt"
+    },
+
+    "fontWeight": {
+        "message": " Font weight",
+        "description": "Font weight caption"
+    },
+    "fontWeight100": {
+        "message": "Thin",
+        "description": "Font weight"
+    },
+    "fontWeight300": {
+        "message": "Light"
+    },
+    "fontWeight400": {
+        "message": "Normal"
+    },
+    "fontWeight500": {
+        "message": "Medium"
+    },
+    "fontWeight600": {
+        "message": "Semi bold"
+    },
+    "fontWeight700": {
+        "message": "Bold"
+    },
+    "fontWeight800": {
+        "message": "ZZZExtra bold"
     }
 }
