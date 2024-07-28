@@ -154,5 +154,18 @@
     "borderColour": {
         "message": "Border colour",
         "description": "Border colour caption"
+    },
+
+    "example": {
+        "message": "Example",
+        "description": "Example caption"
+    },
+    "exampleText": {
+        "message": "123 x 456"
+    },
+
+    "apply": {
+        "message": "Apply",
+        "description": "Apply button caption"
     }
 }
