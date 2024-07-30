@@ -24,7 +24,7 @@
     },
     "positionNE": {
         "message": "Top right",
-        "description": "Position vale top right"
+        "description": "Position value top right"
     },
     "positionSE": {
         "message": "Bottom right",
@@ -96,7 +96,7 @@
         "message": "Bold"
     },
     "fontWeight800": {
-        "message": "ZZZExtra bold"
+        "message": "Extra bold"
     },
 
     "borderMargin": {
