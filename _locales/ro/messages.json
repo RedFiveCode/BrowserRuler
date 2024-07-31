@@ -1,0 +1,171 @@
+{
+    "widthHeight": {
+        "message": "$width$ x $height$",
+        "description": "Width and height in pixels",
+        "placeholders": {
+            "width" : {
+                "content": "$1",
+                "example": "1920"
+            },
+            "height" : {
+                "content": "$2",
+                "example": "1280"
+            }
+        }
+    },
+
+    "position": {
+        "message": "(RO)Position",
+        "description": "Position caption"
+    },
+    "positionNW": {
+        "message": "(RO)Top left",
+        "description": "Position value top left"
+    },
+    "positionNE": {
+        "message": "(RO)Top right",
+        "description": "Position value top right"
+    },
+    "positionSE": {
+        "message": "(RO)Bottom right",
+        "description": "Position caption bottom right"
+    },
+    "positionSW": {
+        "message": "(RO)Bottom left",
+        "description": "Position caption bottom left"
+    },
+    "positionCentre": {
+        "message": "(RO)Centre",
+        "description": "Position caption centre"
+    },
+
+    "fontSize": {
+        "message": "(RO) Font size",
+        "description": "Font size caption"
+    },
+    "fontSize8pt": {
+        "message": "(RO)8 pt",
+        "description": "Font size in points"
+    },
+    "fontSize10pt": {
+        "message": "(RO)10 pt"
+    },
+    "fontSize12pt": {
+        "message": "(RO)12 pt"
+    },
+    "fontSize14pt": {
+        "message": "(RO)14 pt"
+    },
+    "fontSize18pt": {
+        "message": "(RO)18 pt"
+    },
+    "fontSize24pt": {
+        "message": "(RO)24 pt"
+    },
+    "fontSize36pt": {
+        "message": "(RO)36 pt"
+    },
+    "fontSize48pt": {
+        "message": "(RO)48 pt"
+    },
+    "fontSize72pt": {
+        "message": "(RO)72 pt"
+    },
+
+    "fontWeight": {
+        "message": "(RO) Font weight",
+        "description": "Font weight caption"
+    },
+    "fontWeight100": {
+        "message": "(RO)Thin",
+        "description": "Font weight"
+    },
+    "fontWeight300": {
+        "message": "(RO)Light"
+    },
+    "fontWeight400": {
+        "message": "(RO)Normal"
+    },
+    "fontWeight500": {
+        "message": "(RO)Medium"
+    },
+    "fontWeight600": {
+        "message": "(RO)Semi bold"
+    },
+    "fontWeight700": {
+        "message": "(RO)Bold"
+    },
+    "fontWeight800": {
+        "message": "(RO)Extra bold"
+    },
+
+    "borderMargin": {
+        "message": "(RO)Border margin",
+        "description": "Border margin caption"
+    },
+    "borderMargin0": {
+        "message": "(RO)0 px",
+        "description": "Border margin in pixels"
+    },
+    "borderMargin10": {
+        "message": "(RO)10 px"
+    },
+    "borderMargin15": {
+        "message": "(RO)15 px"
+    },
+    "borderMargin20": {
+        "message": "(RO)20 px"
+    },
+    "borderMargin25": {
+        "message": "(RO)25 px"
+    },
+    "borderMargin30": {
+        "message": "(RO)30 px"
+    },
+    "borderMargin40": {
+        "message": "(RO)40 px"
+    },
+
+    "fade": {
+        "message": "(RO)Fade ",
+        "description": "Fade interval caption"
+    },
+    "fadeOff": {
+        "message": "(RO)Off"
+    },
+    "fade2": {
+        "message": "(RO)2 seconds"
+    },
+    "fade5": {
+        "message": "(RO)5 seconds"
+    },
+    "fade10": {
+        "message": "(RO)10 seconds"
+    },
+
+    "foregroundColour": {
+        "message": "(RO)Foreground colour",
+        "description": "Foreground colour caption"
+    },
+    "backgroundColour": {
+        "message": "(RO)Background colour",
+        "description": "Background colour caption"
+    },
+    "borderColour": {
+        "message": "(RO)Border colour",
+        "description": "Border colour caption"
+    },
+
+    "example": {
+        "message": "(RO)Example",
+        "description": "Example caption"
+    },
+    "exampleText": {
+        "message": "123 x 456"
+    },
+
+    "apply": {
+        "message": "(RO)Apply",
+        "description": "Apply button caption"
+    }
+}
