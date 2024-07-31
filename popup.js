@@ -139,6 +139,11 @@ function loadSettings() {
                                     console.log(`settings loaded: ${JSON.stringify(data)}`);
                                     settings = data.mySettings;
 
+                                    // overwrite default settings if we have some data
+                                    if (data.mySettings) {
+                                        settings = data.mySettings;
+                                    }
+
                                     // set slider
                                     Shared.setSliderValue(document, 'enabledSlider', settings.enabled);
 

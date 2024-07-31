@@ -57,7 +57,10 @@ function subscribe() {
                                         if (data) {
                                             console.log(`settings loaded: ${JSON.stringify(data)}`);
 
-                                            currentSettings = data.mySettings;
+                                            // overwrite default settings if we have some data
+                                            if (data.mySettings) {
+                                                currentSettings = data.mySettings;
+                                            }
 
                                             updateDocument(currentSettings);
                                             OnResize();
