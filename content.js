@@ -4,16 +4,16 @@ const stylesId = "browser-ruler-styles-id";
 const statusDivId = "browser-ruler-status-div";
 
 let currentSettings = { 
-    enabled: true,
-    position: "SW",
-    fontSize: "12", // point
-    fontWeight: "bold",
+    enabled: true, // enabled
+    position: "SE",
+    fontSize: 16, // points
+    fontWeight: "normal",
     backgroundColour: "#bada557F",
     foregroundColour: "navy",
     borderColour: "#bada55",
     borderMargin: 25, // pixels
     fadeInterval: 5 // seconds
-}
+ };
 
 console.log("Content");
 

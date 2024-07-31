@@ -3,11 +3,11 @@ console.log("***Popup***");
 let settings = {
     enabled: true, // enabled
     position: "SE",
-    fontSize: 16, // pixels
+    fontSize: 16, // points
     fontWeight: "normal",
-    backgroundColour: "magenta",
-    foregroundColour: "white",
-    borderColour: "red",
+    backgroundColour: "#bada557F",
+    foregroundColour: "navy",
+    borderColour: "#bada55",
     borderMargin: 25, // pixels
     fadeInterval: 5 // seconds
  };
@@ -137,7 +137,6 @@ function loadSettings() {
                                 console.log("settings loaded");
                                 if (data) {
                                     console.log(`settings loaded: ${JSON.stringify(data)}`);
-                                    settings = data.mySettings;
 
                                     // overwrite default settings if we have some data
                                     if (data.mySettings) {
@@ -223,6 +222,11 @@ function onChanged(e) {
 function loadTranslationResources() {
     // HTML items with translation strings have a data-i18n attribute, for example data-i18n="position"
     // the attribute value (for example "position") is the key to lookup in the messages.json file
+
+    const currentLocale = chrome.i18n.getMessage('@@ui_locale');
+
+    console.log(`Current locale: '${currentLocale}'`);
+
 
     const elements = document.querySelectorAll('[data-i18n]');
 
