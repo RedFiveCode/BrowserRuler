@@ -167,5 +167,63 @@
     "apply": {
         "message": "(RO)Apply",
         "description": "Apply button caption"
+    },
+
+    "pickr_ui_dialog": {
+        "message": "(RO)colour picker dialog",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_toggle": {
+        "message": "(RO)toggle color picker dialog",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_swatch": {
+        "message": "(RO)colour swatch",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_lastcolor": {
+        "message": "(RO)use previous colour",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_save": {
+        "message": "(RO)Save",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_cancel": {
+        "message": "(RO)Cancel",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_ui_clear": {
+        "message": "(RO)Clear",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+
+    "pickr_aria_save": {
+        "message": "(RO)save and close",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_cancel": {
+        "message": "(RO)save and cancel",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_clear": {
+        "message": "(RO)clear and close",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_input": {
+        "message": "(RO)colour input field",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_palette": {
+        "message": "(RO)colour selection area",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_hue": {
+        "message": "(RO)hue selection slider",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
+    },
+    "pickr_aria_opacity": {
+        "message": "(RO)opacity selection slider",
+        "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     }
 }

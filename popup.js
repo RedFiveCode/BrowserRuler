@@ -92,6 +92,27 @@ function createPicker(placeholderElementClassName, defaultColour) {
                 input: true,
                 save: true
             }
+        },
+
+        // Pickr translations; see https://github.com/simonwep/pickr and https://github.com/Simonwep/pickr/issues/303
+        i18n: {
+            // Strings visible in the UI
+            'ui:dialog': chrome.i18n.getMessage('pickr_ui_dialog'),
+            'btn:toggle': chrome.i18n.getMessage('pickr_ui_toggle'),
+            'btn:swatch': chrome.i18n.getMessage('pickr_ui_swatch'),
+            'btn:last-color': chrome.i18n.getMessage('pickr_ui_lastcolor'),
+            'btn:save': chrome.i18n.getMessage('pickr.ui_save'),
+            'btn:cancel': chrome.i18n.getMessage('pickr.pickr_ui_cancel'),
+            'btn:clear': chrome.i18n.getMessage('pickr.pickr_ui_clear'),
+    
+            // Strings used for aria-labels
+            'aria:btn:save': chrome.i18n.getMessage('pickr_aria_save'),
+            'aria:btn:cancel': chrome.i18n.getMessage('pickr_aria_cancel'),
+            'aria:btn:clear': chrome.i18n.getMessage('pickr_aria_clear'),
+            'aria:input': chrome.i18n.getMessage('pickr_aria_input'),
+            'aria:palette': chrome.i18n.getMessage('pickr_aria_palette'),
+            'aria:hue': chrome.i18n.getMessage('pickr_aria_hue'),
+            'aria:opacity': chrome.i18n.getMessage('pickr_aria_opacity')
         }
     });
  }
