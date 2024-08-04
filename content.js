@@ -154,11 +154,11 @@ async function updateDocument(settings) {
 }
 
 function getPositionClassName(settings) {
-    const map = [ { key: "NW", value:"status-text-position-NW" },
-                  { key: "NE", value:"status-text-position-NE" },
-                  { key: "SE", value:"status-text-position-SE" },
-                  { key: "SW", value:"status-text-position-SW" },
-                  { key: "Centre", value:"status-text-position-Centre" } ];
+    const map = [ { key: "NW",     value: "status-text-position-NW" },
+                  { key: "NE",     value: "status-text-position-NE" },
+                  { key: "SE",     value: "status-text-position-SE" },
+                  { key: "SW",     value: "status-text-position-SW" },
+                  { key: "Centre", value: "status-text-position-Centre" } ];
 
     if (settings && settings.position)
     {
@@ -169,5 +169,5 @@ function getPositionClassName(settings) {
         }
     }
 
-    return "SW"; // default
+    return map[0].value; // default
 }
