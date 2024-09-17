@@ -1,4 +1,13 @@
 {
+    "extensionName": {
+        "message": "Browser Ruler",
+        "description": "Extension name in manifest; DO NOT TRANSLATE"
+    },
+    "extensionDescription": {
+        "message": "Browser Ruler; displays size of browser client area in an overlay.",
+        "description": "Extension description in manifest"
+    },
+
     "widthHeight": {
         "message": "$width$ x $height$",
         "description": "Width and height in pixels",

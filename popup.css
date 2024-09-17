@@ -13,7 +13,7 @@ body
     min-height: 300px;
 }
 
-h1
+h1, .title
 {
     color: navy;
 }
