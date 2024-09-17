@@ -101,9 +101,9 @@ function createPicker(placeholderElementClassName, defaultColour) {
             'btn:toggle': chrome.i18n.getMessage('pickr_ui_toggle'),
             'btn:swatch': chrome.i18n.getMessage('pickr_ui_swatch'),
             'btn:last-color': chrome.i18n.getMessage('pickr_ui_lastcolor'),
-            'btn:save': chrome.i18n.getMessage('pickr.ui_save'),
-            'btn:cancel': chrome.i18n.getMessage('pickr.pickr_ui_cancel'),
-            'btn:clear': chrome.i18n.getMessage('pickr.pickr_ui_clear'),
+            'btn:save': chrome.i18n.getMessage('pickr_ui_save'),
+            'btn:cancel': chrome.i18n.getMessage('pickr_ui_cancel'),
+            'btn:clear': chrome.i18n.getMessage('pickr_ui_clear'),
     
             // Strings used for aria-labels
             'aria:btn:save': chrome.i18n.getMessage('pickr_aria_save'),
