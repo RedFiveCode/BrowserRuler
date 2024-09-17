@@ -15,149 +15,149 @@
     },
 
     "position": {
-        "message": "(RO)Position",
+        "message": "Poziție",
         "description": "Position caption"
     },
     "positionNW": {
-        "message": "(RO)Top left",
+        "message": "Stânga sus",
         "description": "Position value top left"
     },
     "positionNE": {
-        "message": "(RO)Top right",
+        "message": "Dreapta sus",
         "description": "Position value top right"
     },
     "positionSE": {
-        "message": "(RO)Bottom right",
+        "message": "Dreapta jos",
         "description": "Position caption bottom right"
     },
     "positionSW": {
-        "message": "(RO)Bottom left",
+        "message": "Stânga jos",
         "description": "Position caption bottom left"
     },
     "positionCentre": {
-        "message": "(RO)Centre",
+        "message": "Centru",
         "description": "Position caption centre"
     },
 
     "fontSize": {
-        "message": "(RO) Font size",
+        "message": "Dimensiune font",
         "description": "Font size caption"
     },
     "fontSize8pt": {
-        "message": "(RO)8 pt",
+        "message": "8 pt",
         "description": "Font size in points"
     },
     "fontSize10pt": {
-        "message": "(RO)10 pt"
+        "message": "10 pt"
     },
     "fontSize12pt": {
-        "message": "(RO)12 pt"
+        "message": "12 pt"
     },
     "fontSize14pt": {
-        "message": "(RO)14 pt"
+        "message": "14 pt"
     },
     "fontSize18pt": {
-        "message": "(RO)18 pt"
+        "message": "18 pt"
     },
     "fontSize24pt": {
-        "message": "(RO)24 pt"
+        "message": "24 pt"
     },
     "fontSize36pt": {
-        "message": "(RO)36 pt"
+        "message": "36 pt"
     },
     "fontSize48pt": {
-        "message": "(RO)48 pt"
+        "message": "48 pt"
     },
     "fontSize72pt": {
-        "message": "(RO)72 pt"
+        "message": "72 pt"
     },
 
     "fontWeight": {
-        "message": "(RO) Font weight",
+        "message": "Grosimea fontului",
         "description": "Font weight caption"
     },
     "fontWeight100": {
-        "message": "(RO)Thin",
+        "message": "Subțire",
         "description": "Font weight"
     },
     "fontWeight300": {
-        "message": "(RO)Light"
+        "message": "Ușor"
     },
     "fontWeight400": {
-        "message": "(RO)Normal"
+        "message": "Normal"
     },
     "fontWeight500": {
-        "message": "(RO)Medium"
+        "message": "Mediu"
     },
     "fontWeight600": {
-        "message": "(RO)Semi bold"
+        "message": "Semi gros"
     },
     "fontWeight700": {
-        "message": "(RO)Bold"
+        "message": "Gros"
     },
     "fontWeight800": {
-        "message": "(RO)Extra bold"
+        "message": "Extra gros"
     },
 
     "borderMargin": {
-        "message": "(RO)Border margin",
+        "message": "Margine bordură",
         "description": "Border margin caption"
     },
     "borderMargin0": {
-        "message": "(RO)0 px",
+        "message": "0 px",
         "description": "Border margin in pixels"
     },
     "borderMargin10": {
-        "message": "(RO)10 px"
+        "message": "10 px"
     },
     "borderMargin15": {
-        "message": "(RO)15 px"
+        "message": "15 px"
     },
     "borderMargin20": {
-        "message": "(RO)20 px"
+        "message": "20 px"
     },
     "borderMargin25": {
-        "message": "(RO)25 px"
+        "message": "25 px"
     },
     "borderMargin30": {
-        "message": "(RO)30 px"
+        "message": "30 px"
     },
     "borderMargin40": {
-        "message": "(RO)40 px"
+        "message": "40 px"
     },
 
     "fade": {
-        "message": "(RO)Fade ",
+        "message": "Estompare",
         "description": "Fade interval caption"
     },
     "fadeOff": {
-        "message": "(RO)Off"
+        "message": "Fără"
     },
     "fade2": {
-        "message": "(RO)2 seconds"
+        "message": "2 secunde"
     },
     "fade5": {
-        "message": "(RO)5 seconds"
+        "message": "5 secunde"
     },
     "fade10": {
-        "message": "(RO)10 seconds"
+        "message": "10 secunde"
     },
 
     "foregroundColour": {
-        "message": "(RO)Foreground colour",
+        "message": "Coloare prim-plan",
         "description": "Foreground colour caption"
     },
     "backgroundColour": {
-        "message": "(RO)Background colour",
+        "message": "Culoare fundal",
         "description": "Background colour caption"
     },
     "borderColour": {
-        "message": "(RO)Border colour",
+        "message": "Culoare bordură",
         "description": "Border colour caption"
     },
 
     "example": {
-        "message": "(RO)Example",
+        "message": "Exemplu",
         "description": "Example caption"
     },
     "exampleText": {
@@ -165,65 +165,65 @@
     },
 
     "apply": {
-        "message": "(RO)Apply",
+        "message": "Aplică",
         "description": "Apply button caption"
     },
 
     "pickr_ui_dialog": {
-        "message": "(RO)colour picker dialog",
+        "message": "dialog de selectare a culorilor",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_toggle": {
-        "message": "(RO)toggle color picker dialog",
+        "message": "comutați dialogul de selectare a culorilor",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_swatch": {
-        "message": "(RO)colour swatch",
+        "message": "eșantion de culoare",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_lastcolor": {
-        "message": "(RO)use previous colour",
+        "message": "folosiți culoarea precedentă",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_save": {
-        "message": "(RO)Save",
+        "message": "Salvează",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_cancel": {
-        "message": "(RO)Cancel",
+        "message": "Anulează",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_ui_clear": {
-        "message": "(RO)Clear",
+        "message": "Șterge",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
 
     "pickr_aria_save": {
-        "message": "(RO)save and close",
+        "message": "Salvează și închide",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_cancel": {
-        "message": "(RO)save and cancel",
+        "message": "Salvează și anulează",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_clear": {
-        "message": "(RO)clear and close",
+        "message": "Anulează și șterge",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_input": {
-        "message": "(RO)colour input field",
+        "message": "câmp de introducere a culorii",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_palette": {
-        "message": "(RO)colour selection area",
+        "message": "zonă de selectare a culorii",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_hue": {
-        "message": "(RO)hue selection slider",
+        "message": "glisor de selecție a nuanței",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     },
     "pickr_aria_opacity": {
-        "message": "(RO)opacity selection slider",
+        "message": "glisor de selecție a opacității",
         "description": "Pickr colour picker i18n; see https://github.com/Simonwep/pickr"
     }
 }
