@@ -4,7 +4,7 @@
         "description": "Extension name in manifest; DO NOT TRANSLATE"
     },
     "extensionDescription": {
-        "message": "Browser Ruler; displays size of browser client area in an overlay.",
+        "message": "Browser Ruler; afișează dimensiunea browserului într-un chenar suprapus.",
         "description": "Extension description in manifest"
     },
 
@@ -24,7 +24,7 @@
     },
 
     "enabled": {
-        "message": "Enabled",
+        "message": "Activ",
         "description": "Enabled caption"
     },
     "position": {
