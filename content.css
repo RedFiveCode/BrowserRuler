@@ -11,6 +11,12 @@
 }
 
 /* don't show the overlay when printing; only on screen */
+@media print {
+    .status-text {
+        display: none;
+    }
+}
+
  @media not print {
     .status-text { 
         position: fixed;
