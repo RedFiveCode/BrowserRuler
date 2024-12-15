@@ -165,8 +165,7 @@ function getPositionClassName(settings) {
                   { key: "SW",     value: "status-text-position-SW" },
                   { key: "Centre", value: "status-text-position-Centre" } ];
 
-    if (settings && settings.position)
-    {
+    if (settings && settings.position) {
         var match = map.find(x => x.key == settings.position)
 
         if (match) {
