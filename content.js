@@ -83,6 +83,11 @@ function OnApplyRequest(payload)
 }
 
 function OnResize(e) {
+    if (!currentSettings || !currentSettings.enabled) {
+        console.log('Extension not enabled, exiting');
+        return;
+    }
+
     console.log(`Onresize: innerWidth=${window.innerWidth}, innerHeight=${window.innerHeight}, clientWidth=${document.body.clientWidth}, clientHeight=${document.body.clientHeight}`);
 
     let myDiv = document.getElementById(statusDivId);
