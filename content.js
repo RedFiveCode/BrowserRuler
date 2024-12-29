@@ -38,11 +38,7 @@ function subscribe() {
 
   // subscribe to messages from popup
   chrome.runtime.onMessage.addListener(function (message, sender, response) {
-    console.log(
-      "(Content) Message '%s' (%s)",
-      message.command,
-      JSON.stringify(message)
-    );
+    console.log("(Content) Message '%s' (%s)", message.command, JSON.stringify(message));
 
     if (message.command === "applyRequest") {
       return OnApplyRequest(message.settings);
@@ -112,9 +108,7 @@ function getFormattedWidthText(width, height) {
 }
 
 function addOrRemoveAnimation(element) {
-  console.log(
-    `addOrRemoveAnimation: fadeInterval=${currentSettings.fadeInterval}`
-  );
+  console.log(`addOrRemoveAnimation: fadeInterval=${currentSettings.fadeInterval}`);
 
   if (currentSettings.fadeInterval === "0") {
     // remove animation, reset opacity
