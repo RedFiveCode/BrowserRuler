@@ -80,26 +80,23 @@ function OnApplyRequest(payload) {
 }
 
 function OnResize(e) {
-  if (!currentSettings || !currentSettings.enabled) {
-    console.log("Extension not enabled, exiting");
-    return;
-  }
-
-  console.log(
-    `Onresize: innerWidth=${window.innerWidth}, innerHeight=${window.innerHeight}, clientWidth=${document.body.clientWidth}, clientHeight=${document.body.clientHeight}`
-  );
+  console.log(`Onresize: innerWidth=${window.innerWidth}, innerHeight=${window.innerHeight}, clientWidth=${document.body.clientWidth}, clientHeight=${document.body.clientHeight}`);
 
   let myDiv = document.getElementById(statusDivId);
 
-  if (myDiv !== null) {
-    addOrRemoveAnimation(myDiv);
-
-    myDiv.innerText = getFormattedWidthText(
-      window.innerWidth,
-      window.innerHeight
-    );
-  } else {
+  if (myDiv == null) {
     console.log(`Element '${statusDivId}' not found`);
+    return;
+  }
+
+  if (currentSettings && currentSettings.enabled) {
+    myDiv.innerText = getFormattedWidthText(window.innerWidth, window.innerHeight);
+  }
+  else {
+    console.log("Extension not enabled, clearing");
+
+    myDiv.innerText = '';
+    return;
   }
 }
 
