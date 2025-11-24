@@ -18,7 +18,7 @@ This browser extension runs in the background and can change the underlying web 
 ## Author and License
 RedFiveCode (https://github.com/RedFiveCode)
 
-Copyright (c) 2024 RedFiveCode (https://github.com/RedFiveCode) All rights reserved.
+Copyright (c) 2024-2025 RedFiveCode (https://github.com/RedFiveCode) All rights reserved.
 
 Released under MIT License (see License.txt file).
 
