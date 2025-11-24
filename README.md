@@ -13,7 +13,7 @@ This browser extension is not ground breaking. The motivation for writing this i
 Chrome browser extension written in javascript.
 
 ## Security considerations
-TBA.
+This browser extension runs in the background and can change the underlying web page displayed to the user.
 
 ## Author and License
 RedFiveCode (https://github.com/RedFiveCode)
