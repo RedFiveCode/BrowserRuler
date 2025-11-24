@@ -90,11 +90,12 @@ function OnResize(e) {
   }
 
   if (currentSettings && currentSettings.enabled) {
+    myDiv.classList.remove("status-text-hidden");
     myDiv.innerText = getFormattedWidthText(window.innerWidth, window.innerHeight);
-  }
-  else {
+  } else {
     console.log("Extension not enabled, clearing");
 
+    myDiv.classList.add("status-text-hidden");
     myDiv.innerText = '';
     return;
   }
